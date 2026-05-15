@@ -23,3 +23,9 @@ occlusion_enabled = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1886318897]
 zoom = Vector2(0.1, 0.1)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=141810196]
+offset_right = 40.0
+offset_bottom = 40.0
+rotation = 0.7853982
+color = Color(0.68396026, 0.7890422, 1, 1)

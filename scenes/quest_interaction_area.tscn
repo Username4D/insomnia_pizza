@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cdxubrqj51m7e"]
+
+[ext_resource type="Script" uid="uid://jw0j6o6sqcwo" path="res://scripts/map/quest_interaction_area.gd" id="1_4rwjp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtcmo"]
+radius = 128.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_4rwjp"]
+
+[node name="quest_interaction_area" type="Area2D" unique_id=2019042317 groups=["interactable", "interaction_area"]]
+script = ExtResource("1_4rwjp")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=424073513]
+shape = SubResource("CircleShape2D_gtcmo")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1729073880]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=715614242]
+self_modulate = Color(1, 0.65882355, 0.11764706, 0.023529412)
+position = Vector2(-1.5258789e-05, 5.340576e-05)
+scale = Vector2(320.36288, 320.00006)
+mesh = SubResource("SphereMesh_4rwjp")
+
+[connection signal="interaction" from="." to="." method="_on_interaction"]

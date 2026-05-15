@@ -12,7 +12,7 @@ func physics_process(_delta: float) -> void:
 	object.get_node("hitbox").disabled = false
 	
 	var interactables = []
-	for i in object.get_node("interaction_area").get_overlapping_bodies():
+	for i in object.get_node("interaction_area").get_overlapping_bodies() + object.get_node("interaction_area").get_overlapping_areas():
 		if i.is_in_group("interactable"):
 			interactables.append(i)
 	object.get_node("Label").visible = len(interactables) > 0
@@ -31,6 +31,8 @@ func physics_process(_delta: float) -> void:
 				i.grabbed.emit(object)
 				grabbed_item = i
 				break
+			if i.is_in_group("interaction_area"):
+				i.interaction.emit()
 			if grabbed_item != null:
 				print("ungrabbed")
 				grabbed_item.ungrabbed.emit(object)

@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="insomnia_pizza"
+run/main_scene="uid://xejjjomecqxf"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
 
@@ -33,6 +34,7 @@ player=""
 car=""
 interactable=""
 grabable_item=""
+interaction_area=""
 
 [input]
 

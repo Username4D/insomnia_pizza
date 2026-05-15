@@ -13,7 +13,7 @@ radius = 16.0
 [sub_resource type="SphereMesh" id="SphereMesh_56udc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_56udc"]
-radius = 128.0
+radius = 64.0
 
 [node name="player_character" type="CharacterBody2D" unique_id=615522493]
 script = ExtResource("1_56udc")
