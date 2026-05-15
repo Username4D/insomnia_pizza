@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://uufsarb8myvo"]
+
+[ext_resource type="Texture2D" uid="uid://coxvwcgltl6rb" path="res://icon.svg" id="1_gdf00"]
+[ext_resource type="Script" uid="uid://ct1dmt7344ara" path="res://scripts/objects/basic_grabable_item.gd" id="1_ie3og"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ie3og"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu067"]
+
+[node name="basic_grabable_item" type="Area2D" unique_id=832700930 groups=["grabable_item", "interactable"]]
+script = ExtResource("1_ie3og")
+
+[node name="texture" type="MeshInstance2D" parent="." unique_id=373712621]
+mesh = SubResource("QuadMesh_ie3og")
+texture = ExtResource("1_gdf00")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=1020758666]
+shape = SubResource("RectangleShape2D_mu067")

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://57qy50qh0kh6"]
+
+[ext_resource type="Script" uid="uid://caq6ry4xuyar2" path="res://scripts/player/player_character.gd" id="1_56udc"]
+[ext_resource type="Script" uid="uid://d3l8c5d5aq160" path="res://scripts/general/state_machine.gd" id="2_uj7mf"]
+[ext_resource type="Script" uid="uid://ci3jmcwncrsy2" path="res://scripts/player/state_walking.gd" id="3_2vmgx"]
+[ext_resource type="Script" uid="uid://b72x7rsbrl5nb" path="res://scripts/player/state_driving.gd" id="4_6unfe"]
+[ext_resource type="Script" uid="uid://b16oled5aninw" path="res://scripts/player/state_dialog.gd" id="5_pxja8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqrqw"]
+radius = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_56udc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56udc"]
+radius = 128.0
+
+[node name="player_character" type="CharacterBody2D" unique_id=615522493]
+script = ExtResource("1_56udc")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=341159130]
+shape = SubResource("CircleShape2D_yqrqw")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=980198999]
+self_modulate = Color(0.09239707, 0.09239706, 0.09239706, 1)
+position = Vector2(1.9073486e-06, 5.722046e-06)
+scale = Vector2(32, 32)
+mesh = SubResource("SphereMesh_56udc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=455284536]
+
+[node name="interaction_area" type="Area2D" parent="." unique_id=690276152]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area" unique_id=1595814731]
+shape = SubResource("CircleShape2D_56udc")
+
+[node name="Label" type="Label" parent="." unique_id=1669367226]
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = -64.0
+text = "Press E to interact"
+horizontal_alignment = 1
+
+[node name="player_states" type="Node" parent="." unique_id=1966318869 node_paths=PackedStringArray("initial_state", "object")]
+script = ExtResource("2_uj7mf")
+initial_state = NodePath("walking")
+object = NodePath("..")
+
+[node name="walking" type="Node" parent="player_states" unique_id=481453457 node_paths=PackedStringArray("object")]
+script = ExtResource("3_2vmgx")
+object = NodePath("../..")
+
+[node name="driving" type="Node" parent="player_states" unique_id=974259492 node_paths=PackedStringArray("object")]
+script = ExtResource("4_6unfe")
+object = NodePath("../..")
+
+[node name="dialog" type="Node" parent="player_states" unique_id=1258632294 node_paths=PackedStringArray("object")]
+script = ExtResource("5_pxja8")
+object = NodePath("../..")
+
+[node name="item_spot" type="Marker2D" parent="." unique_id=18289370]
+position = Vector2(24, -18)
+
+[connection signal="body_entered" from="interaction_area" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="interaction_area" to="." method="_on_area_2d_body_exited"]

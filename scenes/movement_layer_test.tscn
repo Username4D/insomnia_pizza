@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dve1pseyisf4w"]
+
+[ext_resource type="Script" uid="uid://b8xym12lgol6u" path="res://scripts/map/movement_layer_test.gd" id="1_dylco"]
+[ext_resource type="PackedScene" uid="uid://57qy50qh0kh6" path="res://scenes/player_character.tscn" id="1_s3rdx"]
+[ext_resource type="PackedScene" uid="uid://b3rhyvixx437n" path="res://scenes/car.tscn" id="2_5iobk"]
+[ext_resource type="PackedScene" uid="uid://b2kertkvqluld" path="res://scenes/map.tscn" id="2_7qgqe"]
+[ext_resource type="PackedScene" uid="uid://uufsarb8myvo" path="res://scenes/basic_grabable_item.tscn" id="4_jvbio"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vgt1"]
+radius = 256.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_jvbio"]
+
+[node name="movement_layer_test" type="Node2D" unique_id=1505508988]
+script = ExtResource("1_dylco")
+
+[node name="map" parent="." unique_id=345281684 instance=ExtResource("2_7qgqe")]
+
+[node name="player_character" parent="." unique_id=615522493 groups=["player"] instance=ExtResource("1_s3rdx")]
+position = Vector2(704, 448)
+
+[node name="car" parent="." unique_id=145654852 instance=ExtResource("2_5iobk")]
+position = Vector2(1120, 640)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2107581423]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=391860323]
+shape = SubResource("CircleShape2D_1vgt1")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=1716335148]
+position = Vector2(0, 6.1035156e-05)
+scale = Vector2(512.5806, 512.0001)
+mesh = SubResource("SphereMesh_jvbio")
+
+[node name="basic_grabable_item" parent="." unique_id=832700930 instance=ExtResource("4_jvbio")]
+position = Vector2(384, 352)

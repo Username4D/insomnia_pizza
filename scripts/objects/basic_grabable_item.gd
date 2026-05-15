@@ -1,0 +1,1 @@
+extends grabable_item
