@@ -2,6 +2,7 @@ extends state
 
 var speed = 140
 var grabbed_item: Node = null
+var map_open = false
 
 func physics_process(_delta: float) -> void:
 	object.get_node("minimap_container/SubViewportContainer/minimap").player_position = object.position
@@ -23,7 +24,7 @@ func physics_process(_delta: float) -> void:
 				print("car")
 				i.is_driven = true
 				i.driver = object
-				switch_state.emit("driving", {"car": i})
+				switch_state.emit("driving", {"car": i, "map_open": map_open})
 				break
 			if i.is_in_group("grabable_item") and grabbed_item == null:
 				print("grabbed ", i.name)
@@ -38,9 +39,30 @@ func physics_process(_delta: float) -> void:
 	
 	if grabbed_item:
 		grabbed_item.position = object.get_node("item_spot").global_position
-
+	
+	if Input.is_action_just_pressed("ui_open_map"):
+		map_open = !map_open
+		if !map_open:
+			object.get_node("minimap_container").position = Vector2(384, -288)
+			object.get_node("minimap_container").size = Vector2(160, 160)
+		else:
+			object.get_node("minimap_container").position = Vector2(-288, -288)
+			object.get_node("minimap_container").size = Vector2(576, 576)
+		
+		
 func exit() -> void:
 	object.get_node("Label").visible = false
 	if grabbed_item:
 		grabbed_item.ungrabbed.emit(object)
 		grabbed_item = null
+
+func enter(old, _data):
+	if _data.has("map_open"):
+		print(_data["map_open"])
+		map_open = _data["map_open"]
+		if !_data["map_open"]:
+			object.get_node("minimap_container").position = Vector2(384, -288)
+			object.get_node("minimap_container").size = Vector2(160, 160)
+		else:
+			object.get_node("minimap_container").position = Vector2(-288, -288)
+			object.get_node("minimap_container").size = Vector2(576, 576)
