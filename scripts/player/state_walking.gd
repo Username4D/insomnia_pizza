@@ -4,6 +4,8 @@ var speed = 140
 var grabbed_item: Node = null
 
 func physics_process(_delta: float) -> void:
+	object.get_node("minimap_container/SubViewportContainer/minimap").player_position = object.position
+	
 	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	object.move_and_collide(input.normalized() * speed * _delta)
 	object.get_node("hitbox").disabled = false

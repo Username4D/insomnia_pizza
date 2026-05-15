@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bulooumynmp11" path="res://resources/assets/tilesets/tiles_basic.png" id="1_mwy2k"]
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_mwy2k"]
+tile_data = PackedInt32Array(0, 65536, 1342177281, 65536, 131072, 1342177281, 131072, 65536, 1610612737)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ef5ns"]
 texture = ExtResource("1_mwy2k")
 1:0/0 = 0
@@ -25,3 +28,4 @@ texture = ExtResource("1_mwy2k")
 
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_ef5ns")
+pattern_0 = SubResource("TileMapPattern_mwy2k")
