@@ -8,6 +8,7 @@ func _process(delta: float) -> void:
 			$quest_map_hint.visible = true
 			if $quest_marker.global_position.clamp(self.get_parent().get_node("Camera2D").position - Vector2(800, 800), self.get_parent().get_node("Camera2D").position + Vector2(800, 800)) == $quest_marker.global_position:
 				$quest_map_hint.visible = false
+
 			else:
 				$quest_map_hint.visible = true
 				$quest_map_hint.global_position = $quest_marker.global_position.clamp(self.get_parent().get_node("Camera2D").position - Vector2(700, 700), self.get_parent().get_node("Camera2D").position + Vector2(700, 700))

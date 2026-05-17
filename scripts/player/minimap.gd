@@ -10,5 +10,6 @@ func create_marker(marker_position: Vector2) -> Node:
 	self.add_child(new_marker)
 	return new_marker
 
+
 func _process(delta: float) -> void:
 	$Camera2D.position = player_position
