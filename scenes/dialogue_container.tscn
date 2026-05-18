@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://s8yk32q2b4cd"]
+
+[ext_resource type="Script" uid="uid://uaus0t0vpn8x" path="res://scripts/dialogue_system/dialogue_container.gd" id="1_0yuyb"]
+[ext_resource type="PackedScene" uid="uid://xbvecomws1b6" path="res://scenes/dialog_option.tscn" id="1_3x4v3"]
+[ext_resource type="Script" uid="uid://pqehxrg4pn8g" path="res://scripts/dialogue_system/dialog_part.gd" id="2_6lo1g"]
+[ext_resource type="Script" uid="uid://2ar81ojxyvj1" path="res://scripts/dialogue_system/answer_pair.gd" id="2_gkc2b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yt00"]
+bg_color = Color(0.015686275, 0.015686275, 0.023529412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.30588236, 0.30588236, 0.34117648, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3x4v3"]
+
+[node name="dialogue_container" type="Control" unique_id=55732352 node_paths=PackedStringArray("initial_part")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0yuyb")
+initial_part = NodePath("dialog_parts/DialogPart")
+
+[node name="character_text" type="Panel" parent="." unique_id=1643669484]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 416.0
+offset_right = 1056.0
+offset_bottom = 512.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yt00")
+
+[node name="Label" type="Label" parent="character_text" unique_id=792910460]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 928.0
+offset_bottom = 96.0
+text = "HELLO GUYS THIS IS DIAALOGUE"
+label_settings = SubResource("LabelSettings_3x4v3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="options_panel" type="Panel" parent="." unique_id=1592724507]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 512.0
+offset_right = 1056.0
+offset_bottom = 576.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yt00")
+
+[node name="MarginContainer" type="MarginContainer" parent="options_panel" unique_id=1505731490]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="options" type="HSplitContainer" parent="options_panel/MarginContainer" unique_id=652200657]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_constants/minimum_grab_thickness = 0
+split_offsets = PackedInt32Array(0, 0)
+dragging_enabled = false
+
+[node name="dialog_option" parent="options_panel/MarginContainer/options" unique_id=58874116 instance=ExtResource("1_3x4v3")]
+layout_mode = 2
+
+[node name="dialog_option2" parent="options_panel/MarginContainer/options" unique_id=316776214 instance=ExtResource("1_3x4v3")]
+layout_mode = 2
+
+[node name="dialog_option3" parent="options_panel/MarginContainer/options" unique_id=312449359 instance=ExtResource("1_3x4v3")]
+layout_mode = 2
+
+[node name="dialog_parts" type="Node" parent="." unique_id=212496064]
+
+[node name="DialogPart" type="Node" parent="dialog_parts" unique_id=2047606389 node_paths=PackedStringArray("answers")]
+script = ExtResource("2_6lo1g")
+text = "Hello! Do you want Pizza"
+answers = [NodePath("DialogueOption"), NodePath("DialogueOption2")]
+metadata/_custom_type_script = "uid://pqehxrg4pn8g"
+
+[node name="DialogueOption" type="Node" parent="dialog_parts/DialogPart" unique_id=570847470]
+script = ExtResource("2_gkc2b")
+answer = "NO"
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="DialogueOption2" type="Node" parent="dialog_parts/DialogPart" unique_id=924597390 node_paths=PackedStringArray("dialogue_part")]
+script = ExtResource("2_gkc2b")
+answer = "YES"
+dialogue_part = NodePath("../../DialogPart2")
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="DialogPart2" type="Node" parent="dialog_parts" unique_id=57180873 node_paths=PackedStringArray("answers")]
+script = ExtResource("2_6lo1g")
+text = "You cant have Pizza"
+answers = [NodePath("DialogueOption"), NodePath("DialogueOption2")]
+metadata/_custom_type_script = "uid://pqehxrg4pn8g"
+
+[node name="DialogueOption" type="Node" parent="dialog_parts/DialogPart2" unique_id=8162410]
+script = ExtResource("2_gkc2b")
+answer = "rip"
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="DialogueOption2" type="Node" parent="dialog_parts/DialogPart2" unique_id=1542958851]
+script = ExtResource("2_gkc2b")
+answer = "sadge"
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"

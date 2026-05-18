@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://br12lhyjmwa4n" path="res://resources/assets/tile_pure_white.png" id="1_lj7mc"]
 [ext_resource type="Script" uid="uid://drtu6vb01cgv7" path="res://scripts/player/minimap.gd" id="1_o13pn"]
-[ext_resource type="PackedScene" uid="uid://mm5x73g25l0j" path="res://scenes/quest_marker.tscn" id="3_4v8nv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o13pn"]
 texture = ExtResource("1_lj7mc")
@@ -30,9 +29,3 @@ offset_right = 40.0
 offset_bottom = 40.0
 rotation = 0.7853982
 color = Color(0.68396026, 0.7890422, 1, 1)
-
-[node name="quest_marker" parent="." unique_id=994140846 instance=ExtResource("3_4v8nv")]
-offset_left = 960.0
-offset_top = 448.0
-offset_right = 1000.0
-offset_bottom = 488.0

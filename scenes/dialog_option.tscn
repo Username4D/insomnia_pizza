@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://xbvecomws1b6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nabb3"]
+bg_color = Color(0.015686275, 0.015686275, 0.023529412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.14509805, 0.14509805, 0.19607843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xgwi"]
+bg_color = Color(0.054196194, 0.054197736, 0.07424269, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.19607843, 0.19607843, 0.24313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u46lk"]
+bg_color = Color(0.024230752, 0.024230942, 0.036338024, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.1764706, 0.1764706, 0.22745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a8nf"]
+bg_color = Color(0.015686275, 0.015686275, 0.023529412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.14509805, 0.14509805, 0.19607843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tunc6"]
+bg_color = Color(0.015686275, 0.015686275, 0.023529412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.14509805, 0.14509805, 0.19607843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yt00"]
+bg_color = Color(0.015686275, 0.015686275, 0.023529412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.14509805, 0.14509805, 0.19607843, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nabb3"]
+font_size = 14
+
+[node name="dialog_option" type="Button" unique_id=58874116]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_nabb3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0xgwi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u46lk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6a8nf")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_tunc6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6yt00")
+
+[node name="Label" type="Label" parent="." unique_id=1262505042]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DIALOGUE_OPTION"
+label_settings = SubResource("LabelSettings_nabb3")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://lb4ll7ssfq85"]
+
+[ext_resource type="Script" uid="uid://pqehxrg4pn8g" path="res://scripts/dialogue_system/dialog_part.gd" id="1_a3u46"]
+
+[node name="dialog_part" type="Node" unique_id=109994784 node_paths=PackedStringArray("answers")]
+script = ExtResource("1_a3u46")
+answers = [null]
