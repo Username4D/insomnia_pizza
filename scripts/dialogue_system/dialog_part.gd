@@ -4,3 +4,4 @@ class_name  DialoguePart
 
 @export var text: String
 @export var answers: Array[DialogueOption]
+@export var data = {}
