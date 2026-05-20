@@ -12,6 +12,7 @@ func start(_map, _player, _quest):
 	var new_cutscene: cutscene = load(\"res://scenes/demo_cutscene.tscn\").instantiate()
 	_quest.get_parent().create_cutscene(new_cutscene, {})
 	marker.queue_free()
+	player_stats_handler.coins += 10
 "
 
 [node name="quest" type="Node" unique_id=2109874893]

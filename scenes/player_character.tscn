@@ -15,6 +15,9 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_56udc"]
 radius = 64.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_2vmgx"]
+font_size = 42
+
 [node name="player_character" type="CharacterBody2D" unique_id=615522493]
 script = ExtResource("1_56udc")
 
@@ -33,14 +36,6 @@ mesh = SubResource("SphereMesh_56udc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area" unique_id=1595814731]
 shape = SubResource("CircleShape2D_56udc")
-
-[node name="Label" type="Label" parent="." unique_id=1669367226]
-offset_left = -96.0
-offset_top = -96.0
-offset_right = 96.0
-offset_bottom = -64.0
-text = "Press E to interact"
-horizontal_alignment = 1
 
 [node name="player_states" type="Node" parent="." unique_id=1966318869 node_paths=PackedStringArray("initial_state", "object")]
 script = ExtResource("2_uj7mf")
@@ -62,7 +57,19 @@ object = NodePath("../..")
 [node name="item_spot" type="Marker2D" parent="." unique_id=18289370]
 position = Vector2(24, -18)
 
-[node name="minimap_container" type="Control" parent="." unique_id=967331823]
+[node name="ui" type="Node2D" parent="." unique_id=2131788131]
+
+[node name="interaction_hint" type="Label" parent="ui" unique_id=1669367226]
+unique_name_in_owner = true
+offset_left = -96.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = -64.0
+text = "Press E to interact"
+horizontal_alignment = 1
+
+[node name="minimap_container" type="Control" parent="ui" unique_id=967331823]
+unique_name_in_owner = true
 clip_children = 1
 z_index = 4
 layout_mode = 3
@@ -72,7 +79,7 @@ offset_top = -288.0
 offset_right = 544.0
 offset_bottom = -128.0
 
-[node name="ColorRect" type="ColorRect" parent="minimap_container" unique_id=319750347]
+[node name="ColorRect" type="ColorRect" parent="ui/minimap_container" unique_id=319750347]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -81,7 +88,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.42745098)
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="minimap_container" unique_id=1208642729]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="ui/minimap_container" unique_id=1208642729]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,11 +97,20 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="minimap" parent="minimap_container/SubViewportContainer" unique_id=2047516017 instance=ExtResource("6_2vmgx")]
+[node name="minimap" parent="ui/minimap_container/SubViewportContainer" unique_id=2047516017 instance=ExtResource("6_2vmgx")]
 unique_name_in_owner = true
 handle_input_locally = false
 size = Vector2i(160, 160)
 render_target_update_mode = 4
+
+[node name="coins_display" type="Label" parent="ui" unique_id=884008935]
+unique_name_in_owner = true
+offset_left = -544.0
+offset_top = -304.0
+offset_right = -352.0
+offset_bottom = -246.0
+text = "32$"
+label_settings = SubResource("LabelSettings_2vmgx")
 
 [connection signal="body_entered" from="interaction_area" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="interaction_area" to="." method="_on_area_2d_body_exited"]

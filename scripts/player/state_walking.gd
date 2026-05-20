@@ -5,7 +5,9 @@ var grabbed_item: Node = null
 var map_open = false
 
 func physics_process(_delta: float) -> void:
-	object.get_node("minimap_container/SubViewportContainer/minimap").player_position = object.position
+	object.get_node("%coins_display").text = str(player_stats_handler.coins) + " $"
+	
+	object.get_node("%minimap").player_position = object.position
 	
 	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	object.move_and_collide(input.normalized() * speed * _delta)
@@ -15,7 +17,7 @@ func physics_process(_delta: float) -> void:
 	for i in object.get_node("interaction_area").get_overlapping_bodies() + object.get_node("interaction_area").get_overlapping_areas():
 		if i.is_in_group("interactable"):
 			interactables.append(i)
-	object.get_node("Label").visible = len(interactables) > 0
+	object.get_node("%interaction_hint").visible = len(interactables) > 0
 	
 	if Input.is_action_just_pressed("ui_interact"):
 		var objects = object.get_node("interaction_area").get_overlapping_bodies() + object.get_node("interaction_area").get_overlapping_areas()
@@ -45,15 +47,15 @@ func physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_open_map"):
 		map_open = !map_open
 		if !map_open:
-			object.get_node("minimap_container").position = Vector2(384, -288)
-			object.get_node("minimap_container").size = Vector2(160, 160)
+			object.get_node("%minimap_container").position = Vector2(384, -288)
+			object.get_node("%minimap_container").size = Vector2(160, 160)
 		else:
-			object.get_node("minimap_container").position = Vector2(-288, -288)
-			object.get_node("minimap_container").size = Vector2(576, 576)
+			object.get_node("%minimap_container").position = Vector2(-288, -288)
+			object.get_node("%minimap_container").size = Vector2(576, 576)
 		
 		
 func exit() -> void:
-	object.get_node("Label").visible = false
+	object.get_node("%interaction_hint").visible = false
 	if grabbed_item:
 		grabbed_item.ungrabbed.emit(object)
 		grabbed_item = null
@@ -63,8 +65,8 @@ func enter(old, _data):
 		print(_data["map_open"])
 		map_open = _data["map_open"]
 		if !_data["map_open"]:
-			object.get_node("minimap_container").position = Vector2(384, -288)
-			object.get_node("minimap_container").size = Vector2(160, 160)
+			object.get_node("%minimap_container").position = Vector2(384, -288)
+			object.get_node("%minimap_container").size = Vector2(160, 160)
 		else:
-			object.get_node("minimap_container").position = Vector2(-288, -288)
-			object.get_node("minimap_container").size = Vector2(576, 576)
+			object.get_node("%minimap_container").position = Vector2(-288, -288)
+			object.get_node("%minimap_container").size = Vector2(576, 576)
