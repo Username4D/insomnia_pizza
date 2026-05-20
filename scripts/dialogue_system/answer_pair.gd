@@ -4,3 +4,4 @@ class_name DialogueOption
 
 @export var answer: String
 @export var dialogue_part: Node
+@export var data: Dictionary

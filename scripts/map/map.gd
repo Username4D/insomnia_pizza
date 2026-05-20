@@ -8,7 +8,7 @@ func _process(delta: float) -> void:
 	if player:
 		$map_overhang.material.set_shader_parameter("player_world_pos", player.global_position)
 
-func create_interaction_area(pos: Vector2) -> Node:
+func create_interaction_area(pos: Vector2) ->  Node:
 	var new = interaction_area.instantiate()
 	new.position = pos
 	$interaction_areas.add_child(new)

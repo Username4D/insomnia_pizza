@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://db8g5ya72dh0r"]
+
+[ext_resource type="Script" uid="uid://c65rmjvep017m" path="res://scripts/general/gameplay_view.gd" id="1_e77em"]
+[ext_resource type="PackedScene" uid="uid://xejjjomecqxf" path="res://scenes/gameplay_world.tscn" id="1_opx44"]
+
+[node name="gameplay_view" type="Node2D" unique_id=1780766587]
+script = ExtResource("1_e77em")
+
+[node name="gameplay_world" parent="." unique_id=1751764840 instance=ExtResource("1_opx44")]
+unique_name_in_owner = true
+
+[node name="cutscenes" type="CanvasLayer" parent="." unique_id=272857714]

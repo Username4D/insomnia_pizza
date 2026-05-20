@@ -14,7 +14,7 @@ var progress = 0
 
 signal completed
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	await get_tree().process_frame
 	quests[0].started.emit(map, player, self)
 	part_text = quests[0].part_text

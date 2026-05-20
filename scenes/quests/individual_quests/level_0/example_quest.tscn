@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://fsnjeib81fd7"]
+
+[ext_resource type="Script" uid="uid://do05hvlu6hyvh" path="res://scripts/quests/quest.gd" id="1_l0au0"]
+
+[sub_resource type="GDScript" id="GDScript_l0au0"]
+script/source = "extends quest_part
+
+func start(_map, _player, _quest):
+	var area = _map.create_interaction_area(Vector2(500,500))
+	var marker = _player.get_node(\"%minimap\").create_marker(Vector2(500, 500))
+	await area.interacted
+	var new_cutscene: cutscene = load(\"res://scenes/demo_cutscene.tscn\").instantiate()
+	_quest.get_parent().create_cutscene(new_cutscene, {})
+	marker.queue_free()
+"
+
+[node name="quest" type="Node" unique_id=2109874893]
+script = ExtResource("1_l0au0")
+metadata/_custom_type_script = "uid://do05hvlu6hyvh"
+
+[node name="quest_part" type="Node" parent="." unique_id=333577757]
+script = SubResource("GDScript_l0au0")
+metadata/_custom_type_script = "uid://bt34mwf21jqpr"

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://6cjsjbr232ll"]
+
+[ext_resource type="PackedScene" uid="uid://jl06cufi4ch" path="res://scenes/example_dialog.tscn" id="1_8cni1"]
+
+[sub_resource type="GDScript" id="GDScript_mc422"]
+script/source = "extends cutscene
+
+func _start(_data) -> void:
+	$example_dialog.dialogue_finished.connect(func(x): exit.emit(x),)
+"
+
+[sub_resource type="Gradient" id="Gradient_np252"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.99646646)
+colors = PackedColorArray(0, 0, 0.0627451, 1, 0.00065952365, 0, 0.311065, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b2d58"]
+gradient = SubResource("Gradient_np252")
+fill = 1
+fill_from = Vector2(0.50427353, 0.36324787)
+fill_to = Vector2(1, 1)
+
+[node name="demo_cutscene" type="Control" unique_id=237848703]
+layout_mode = 3
+offset_right = 1152.0
+offset_bottom = 672.0
+script = SubResource("GDScript_mc422")
+metadata/_custom_type_script = "uid://vcv7b53awfub"
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=2034128516]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_b2d58")
+
+[node name="example_dialog" parent="." unique_id=55732352 instance=ExtResource("1_8cni1")]
+layout_mode = 1

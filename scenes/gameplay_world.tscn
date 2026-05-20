@@ -3,21 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://b2kertkvqluld" path="res://scenes/map.tscn" id="1_tr6y2"]
 [ext_resource type="Script" uid="uid://b8xym12lgol6u" path="res://scripts/map/gameplay_world.gd" id="1_w4hwi"]
 [ext_resource type="PackedScene" uid="uid://57qy50qh0kh6" path="res://scenes/player_character.tscn" id="2_w4hwi"]
-[ext_resource type="PackedScene" uid="uid://ouxiem75asvy" path="res://scenes/quests/individual_quests/level_0/generic_delivery.tscn" id="3_thyw4"]
 [ext_resource type="PackedScene" uid="uid://b3rhyvixx437n" path="res://scenes/car.tscn" id="4_ah222"]
 [ext_resource type="PackedScene" uid="uid://uufsarb8myvo" path="res://scenes/basic_grabable_item.tscn" id="5_4cuou"]
 
-[node name="gameplay_world" type="Node2D" unique_id=1751764840]
+[node name="gameplay_world" type="Node2D" unique_id=1751764840 node_paths=PackedStringArray("map", "player")]
 script = ExtResource("1_w4hwi")
+map = NodePath("map")
+player = NodePath("player_character")
 
 [node name="map" parent="." unique_id=345281684 instance=ExtResource("1_tr6y2")]
 
 [node name="player_character" parent="." unique_id=615522493 groups=["player"] instance=ExtResource("2_w4hwi")]
 position = Vector2(704, 448)
-
-[node name="quest" parent="." unique_id=403987181 node_paths=PackedStringArray("map", "player") instance=ExtResource("3_thyw4")]
-map = NodePath("../map")
-player = NodePath("../player_character")
 
 [node name="objects" type="Node2D" parent="." unique_id=2031243418]
 

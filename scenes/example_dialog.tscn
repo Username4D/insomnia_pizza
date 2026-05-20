@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://jl06cufi4ch"]
+
+[ext_resource type="PackedScene" uid="uid://s8yk32q2b4cd" path="res://scenes/dialogue_container.tscn" id="1_b22uo"]
+[ext_resource type="Script" uid="uid://pqehxrg4pn8g" path="res://scripts/dialogue_system/dialog_part.gd" id="2_gmtbp"]
+[ext_resource type="Script" uid="uid://2ar81ojxyvj1" path="res://scripts/dialogue_system/answer_pair.gd" id="3_76dgl"]
+
+[node name="example_dialog" unique_id=55732352 node_paths=PackedStringArray("initial_part") instance=ExtResource("1_b22uo")]
+initial_part = NodePath("dialog_parts/intro_question")
+
+[node name="intro_question" type="Node" parent="dialog_parts" parent_id_path=PackedInt32Array(212496064) index="0" unique_id=1461417148 node_paths=PackedStringArray("answers")]
+script = ExtResource("2_gmtbp")
+text = "What can i do for you?"
+answers = [NodePath("DialogueOption"), NodePath("DialogueOption2")]
+metadata/_custom_type_script = "uid://pqehxrg4pn8g"
+
+[node name="DialogueOption" type="Node" parent="dialog_parts/intro_question" index="0" unique_id=1827893680 node_paths=PackedStringArray("dialogue_part")]
+script = ExtResource("3_76dgl")
+answer = "Can i get some pizza?"
+dialogue_part = NodePath("../../follow_up_pizza")
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="DialogueOption2" type="Node" parent="dialog_parts/intro_question" index="1" unique_id=1316827121]
+script = ExtResource("3_76dgl")
+answer = "Have a fine day"
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="follow_up_pizza" type="Node" parent="dialog_parts" parent_id_path=PackedInt32Array(212496064) index="1" unique_id=2074864160 node_paths=PackedStringArray("answers")]
+script = ExtResource("2_gmtbp")
+text = "What Pizza"
+answers = [NodePath("DialogueOption"), NodePath("DialogueOption2")]
+metadata/_custom_type_script = "uid://pqehxrg4pn8g"
+
+[node name="DialogueOption" type="Node" parent="dialog_parts/follow_up_pizza" index="0" unique_id=1185219457]
+script = ExtResource("3_76dgl")
+answer = "Cheese!"
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="DialogueOption2" type="Node" parent="dialog_parts/follow_up_pizza" index="1" unique_id=150474871]
+script = ExtResource("3_76dgl")
+answer = "Peperoni"
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="cheese_out" type="Node" parent="dialog_parts" parent_id_path=PackedInt32Array(212496064) index="2" unique_id=685505576 node_paths=PackedStringArray("answers")]
+script = ExtResource("2_gmtbp")
+text = "Cheese is sadly out..."
+answers = [NodePath("DialogueOption"), NodePath("")]
+metadata/_custom_type_script = "uid://pqehxrg4pn8g"
+
+[node name="DialogueOption" type="Node" parent="dialog_parts/cheese_out" index="0" unique_id=1003642693]
+script = ExtResource("3_76dgl")
+answer = "Ok... Have a good Day!"
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="peperoni_out" type="Node" parent="dialog_parts" parent_id_path=PackedInt32Array(212496064) index="3" unique_id=847048017 node_paths=PackedStringArray("answers")]
+script = ExtResource("2_gmtbp")
+text = "Peperoni is sadly out."
+answers = [NodePath("DialogueOption"), NodePath("")]
+metadata/_custom_type_script = "uid://pqehxrg4pn8g"
+
+[node name="DialogueOption" type="Node" parent="dialog_parts/peperoni_out" index="0" unique_id=1271639475]
+script = ExtResource("3_76dgl")
+answer = "Ok... Have a good Day!"
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
