@@ -14,7 +14,7 @@ void fragment() {
 	float dist = distance(world_pos, player_world_pos);
 	float a_mask =0.35 +  (0.65 * smoothstep(radius - 10.0, radius, dist));
 	COLOR = texture_color;
-	COLOR.a = a_mask;
+	COLOR.a = a_mask * COLOR.a;
 }
 
 //void light() {

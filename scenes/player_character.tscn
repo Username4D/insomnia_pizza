@@ -57,10 +57,14 @@ object = NodePath("../..")
 [node name="item_spot" type="Marker2D" parent="." unique_id=18289370]
 position = Vector2(24, -18)
 
-[node name="ui" type="Node2D" parent="." unique_id=2131788131]
+[node name="ui" type="Control" parent="." unique_id=1625663456]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
 
 [node name="interaction_hint" type="Label" parent="ui" unique_id=1669367226]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = -96.0
 offset_top = -96.0
 offset_right = 96.0
@@ -72,7 +76,6 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 clip_children = 1
 z_index = 4
-layout_mode = 3
 anchors_preset = 0
 offset_left = 384.0
 offset_top = -288.0
@@ -105,6 +108,7 @@ render_target_update_mode = 4
 
 [node name="coins_display" type="Label" parent="ui" unique_id=884008935]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = -544.0
 offset_top = -304.0
 offset_right = -352.0

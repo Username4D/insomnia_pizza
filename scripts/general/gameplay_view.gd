@@ -19,6 +19,8 @@ func load_quest(quest_node: quest):
 	quest_node.player = $gameplay_world.player
 	self.add_child(quest_node)
 
-func _ready() -> void:
-	var example_quest = load("res://scenes/quests/individual_quests/level_0/example_quest.tscn").instantiate()
-	load_quest(example_quest)
+func _on_gameplay_world_shop_cutscene() -> void:
+	create_cutscene(load("res://scenes/cutscenes/shop.tscn").instantiate(), {})
+
+func _on_gameplay_world_pizzeria_cutscene() -> void:
+	create_cutscene(load("res://scenes/cutscenes/pizzeria.tscn").instantiate(), {})

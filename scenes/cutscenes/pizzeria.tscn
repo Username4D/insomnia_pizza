@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://n80n4x38ypif"]
+
+[ext_resource type="Texture2D" uid="uid://btqojxwx7jqog" path="res://resources/assets/pizzaria.png" id="2_86abc"]
+[ext_resource type="Texture2D" uid="uid://ka6jwaxekf3q" path="res://resources/assets/pizzaria_button.png" id="3_1gbjn"]
+
+[sub_resource type="GDScript" id="GDScript_t7yah"]
+script/source = "extends cutscene
+
+var exit_button_has_mouse: bool = false
+
+func _on_exit_button_pressed() -> void:
+	exit.emit()
+
+func _on_exit_button_mouse_entered() -> void:
+	exit_button_has_mouse = true
+
+func _on_exit_button_mouse_exited() -> void:
+	exit_button_has_mouse = false
+
+func _process(delta: float) -> void:
+	if %exit_button.button_pressed:
+		$bg_texture/exit_button/button_highlight.self_modulate.a = 0.2
+	elif exit_button_has_mouse:
+		$bg_texture/exit_button/button_highlight.self_modulate.a = 0.1
+	else:
+		$bg_texture/exit_button/button_highlight.self_modulate.a = 0
+"
+
+[node name="pizzeria" type="Control" unique_id=882671315]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_t7yah")
+metadata/_custom_type_script = "uid://vcv7b53awfub"
+
+[node name="bg_texture" type="TextureRect" parent="." unique_id=1492296901]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_86abc")
+
+[node name="exit_button" type="Button" parent="bg_texture" unique_id=2024060832]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 896.0
+offset_right = 1120.0
+offset_bottom = 160.0
+
+[node name="button_highlight" type="TextureRect" parent="bg_texture/exit_button" unique_id=1794185410]
+self_modulate = Color(1, 1, 1, 0.27058825)
+layout_mode = 0
+offset_left = 4.08
+offset_top = -7.8
+offset_right = 59.08
+offset_bottom = 35.2
+scale = Vector2(4, 4)
+texture = ExtResource("3_1gbjn")
+
+[connection signal="mouse_entered" from="bg_texture/exit_button" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="mouse_exited" from="bg_texture/exit_button" to="." method="_on_exit_button_mouse_exited"]
+[connection signal="pressed" from="bg_texture/exit_button" to="." method="_on_exit_button_pressed"]

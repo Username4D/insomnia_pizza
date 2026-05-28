@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://32xv1bab8c4s"]
+
+[ext_resource type="Script" uid="uid://c2hafo635luhh" path="res://scripts/cutscenes/shop.gd" id="1_625o3"]
+[ext_resource type="Texture2D" uid="uid://b03ccg2cfqtsk" path="res://resources/assets/shop.png" id="2_1qm6i"]
+[ext_resource type="PackedScene" uid="uid://bk011bunf7fl5" path="res://scenes/cutscenes/shop_item.tscn" id="3_625o3"]
+[ext_resource type="Texture2D" uid="uid://dgqu2vr8t5nl8" path="res://resources/assets/tilesets/items.png" id="4_rq75k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_625o3"]
+resource_local_to_scene = true
+atlas = ExtResource("4_rq75k")
+region = Rect2(0, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_625o3"]
+load_path = "res://.godot/imported/items.png-be610b5c875c3f65bd27027b18f5c9c3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq75k"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_625o3")
+region = Rect2(16, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_egxnf"]
+load_path = "res://.godot/imported/items.png-be610b5c875c3f65bd27027b18f5c9c3.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egxnf"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_egxnf")
+region = Rect2(31, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_625o3"]
+font_size = 37
+
+[sub_resource type="LabelSettings" id="LabelSettings_rq75k"]
+font_size = 27
+
+[node name="shop" type="Control" unique_id=1317937287]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_625o3")
+metadata/_custom_type_script = "uid://vcv7b53awfub"
+
+[node name="Shop" type="Sprite2D" parent="." unique_id=179771231]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("2_1qm6i")
+
+[node name="items" type="Control" parent="." unique_id=379987121]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="energy_drink" parent="items" unique_id=807322025 instance=ExtResource("3_625o3")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 366.785
+offset_right = 128.0
+offset_bottom = 366.785
+title = "Energy drinks"
+price = 30
+texture = SubResource("AtlasTexture_625o3")
+description = "The developers favourite. Helps you get through your work shift while staying awake"
+item_name = "energy_drink"
+
+[node name="gas" parent="items" unique_id=142350194 instance=ExtResource("3_625o3")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 384.0
+offset_right = 320.0
+offset_bottom = 384.0
+title = "Gas"
+price = 20
+texture = SubResource("AtlasTexture_rq75k")
+description = "Somehow your car has to get fuel..."
+item_name = "gas"
+
+[node name="flashlight" parent="items" unique_id=1727543736 instance=ExtResource("3_625o3")]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 480.0
+offset_right = 224.0
+offset_bottom = 480.0
+title = "Flashlight"
+price = 50
+texture = SubResource("AtlasTexture_egxnf")
+description = "Let there be electronic light"
+item_name = "flashlight"
+
+[node name="cash_amount" type="Label" parent="." unique_id=732444072]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 32.0
+offset_right = 1120.0
+offset_bottom = 96.0
+text = "34$"
+label_settings = SubResource("LabelSettings_625o3")
+horizontal_alignment = 2
+
+[node name="exit_button" type="Button" parent="." unique_id=1572802296]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 160.0
+offset_right = 288.0
+offset_bottom = 224.0
+
+[node name="Label" type="Label" parent="exit_button" unique_id=2116461772]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 64.0
+text = "Back"
+label_settings = SubResource("LabelSettings_rq75k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

@@ -10,3 +10,6 @@ script = ExtResource("1_e77em")
 unique_name_in_owner = true
 
 [node name="cutscenes" type="CanvasLayer" parent="." unique_id=272857714]
+
+[connection signal="pizzeria_cutscene" from="gameplay_world" to="." method="_on_gameplay_world_pizzeria_cutscene"]
+[connection signal="shop_cutscene" from="gameplay_world" to="." method="_on_gameplay_world_shop_cutscene"]

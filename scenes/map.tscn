@@ -3,11 +3,29 @@
 [ext_resource type="TileSet" uid="uid://sg0k2iufbg74" path="res://resources/tilesets/basic.tres" id="1_4xfga"]
 [ext_resource type="Script" uid="uid://f7ykac3xm14q" path="res://scripts/map/map.gd" id="1_gldc4"]
 [ext_resource type="Shader" uid="uid://dapjaaesklu7a" path="res://resources/shaders/player_fade.gdshader" id="2_paxxb"]
+[ext_resource type="Texture2D" uid="uid://cktjfkq1kyt4t" path="res://resources/assets/shop_building.png" id="3_0cso3"]
+[ext_resource type="Texture2D" uid="uid://bgaj5futenn88" path="res://resources/assets/pizzeria_building.png" id="4_2klcf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2klcf"]
+atlas = ExtResource("3_0cso3")
+region = Rect2(0, 48, 144, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nakos"]
+atlas = ExtResource("4_2klcf")
+region = Rect2(0, 32, 112, 64)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gldc4"]
 shader = ExtResource("2_paxxb")
 shader_parameter/player_world_pos = Vector2(0, 0)
 shader_parameter/radius = 150.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lpho"]
+atlas = ExtResource("3_0cso3")
+region = Rect2(0, 0, 144, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh32y"]
+atlas = ExtResource("4_2klcf")
+region = Rect2(0, 0, 112, 32)
 
 [node name="map" type="Node2D" unique_id=345281684]
 script = ExtResource("1_gldc4")
@@ -22,13 +40,44 @@ occlusion_enabled = false
 [node name="interaction_areas" type="Node2D" parent="." unique_id=317525697]
 
 [node name="map_buildings" type="TileMapLayer" parent="." unique_id=609659086]
+z_index = 4
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAALAAwAAAAFAAEAAAALAAsAAAAFAAEAAAAOAAwAAAAFAAEAADAOAAsAAAAFAAEAADAMAAwAAAAGAAEAAAAMAAsAAAAGAAEAAAANAAsAAAAGAAEAAAANAAwAAAAGAAIAAAAOAAoAAAAHAAMAAFALAAoAAAAHAAMAADAMAAoAAAAHAAQAAFANAAoAAAAHAAQAAFALAAkAAAAHAAQAADAOAAkAAAAHAAQAAAAMAAkAAAAGAAQAAAANAAkAAAAGAAQAAAA=")
 tile_set = ExtResource("1_4xfga")
 
+[node name="shop" type="Sprite2D" parent="map_buildings" unique_id=377037408]
+position = Vector2(344, 176)
+texture = SubResource("AtlasTexture_2klcf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="map_buildings/shop" unique_id=1161851139]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="map_buildings/shop/StaticBody2D" unique_id=521859573]
+self_modulate = Color(0, 0, 1, 0.8235294)
+polygon = PackedVector2Array(-72, -32, 72, -32, 72, 32, -72, 32)
+
+[node name="pizzeria" type="Sprite2D" parent="map_buildings" unique_id=1953374336]
+position = Vector2(-136, -80)
+texture = SubResource("AtlasTexture_nakos")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="map_buildings/pizzeria" unique_id=995723997]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="map_buildings/pizzeria/StaticBody2D" unique_id=1087619788]
+visible = false
+polygon = PackedVector2Array(-56, -32, -56, 32, 56, 32, 56, -24, 56, -32)
+
 [node name="map_overhang" type="TileMapLayer" parent="." unique_id=847887997]
-z_index = 2
+z_index = 4
 material = SubResource("ShaderMaterial_gldc4")
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAMAAgAAAAGAAQAAAANAAgAAAAGAAQAAAAOAAgAAAAHAAQAAAANAAcAAAAHAAQAAGAMAAcAAAAHAAQAAGAOAAcAAAAHAAMAAAALAAgAAAAHAAQAADALAAcAAAAHAAMAAGA=")
 tile_set = ExtResource("1_4xfga")
+
+[node name="Sprite2D" type="Sprite2D" parent="map_overhang" unique_id=1291907476]
+use_parent_material = true
+position = Vector2(344, 120)
+texture = SubResource("AtlasTexture_2lpho")
+
+[node name="Sprite2D2" type="Sprite2D" parent="map_overhang" unique_id=1708076580]
+use_parent_material = true
+position = Vector2(-136, -128)
+texture = SubResource("AtlasTexture_jh32y")
