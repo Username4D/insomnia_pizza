@@ -9,6 +9,9 @@ class_name quest
 @export var quest_name: String
 @export var part_text: String
 
+@export var dialogue_text: String
+
+
 var current_quest_part: quest_part
 var progress = 0
 

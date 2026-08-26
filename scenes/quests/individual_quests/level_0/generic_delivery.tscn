@@ -54,6 +54,7 @@ func finish():
 
 [node name="quest" type="Node" unique_id=403987181]
 script = ExtResource("1_r6vpg")
+dialogue_text = "You have to do some stops for this one, but it does pay 50$."
 metadata/_custom_type_script = "uid://do05hvlu6hyvh"
 
 [node name="quest_part" type="Node" parent="." unique_id=935125397]

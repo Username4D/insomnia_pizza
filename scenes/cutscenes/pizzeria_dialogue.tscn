@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bl3y4t81phybr"]
+
+[ext_resource type="PackedScene" uid="uid://s8yk32q2b4cd" path="res://scenes/dialogue_container.tscn" id="1_wkgjf"]
+[ext_resource type="Script" uid="uid://pqehxrg4pn8g" path="res://scripts/dialogue_system/dialog_part.gd" id="2_u3apl"]
+[ext_resource type="Script" uid="uid://2ar81ojxyvj1" path="res://scripts/dialogue_system/answer_pair.gd" id="3_qj8lf"]
+
+[sub_resource type="GDScript" id="GDScript_wkgjf"]
+script/source = "extends \"res://scripts/dialogue_system/dialogue_container.gd\"
+
+func start():
+	$dialog_parts/u_got_quest.text = data[\"quest_dialogue_text\"]
+	load_dialogue_part(initial_part if data[\"do_quest\"] else $dialog_parts/no_quest)
+"
+
+[node name="dialogue_container" unique_id=55732352 node_paths=PackedStringArray("initial_part") instance=ExtResource("1_wkgjf")]
+script = SubResource("GDScript_wkgjf")
+initial_part = NodePath("dialog_parts/do_u_want_quest")
+
+[node name="do_u_want_quest" type="Node" parent="dialog_parts" parent_id_path=PackedInt32Array(212496064) index="0" unique_id=1377378076 node_paths=PackedStringArray("answers")]
+script = ExtResource("2_u3apl")
+text = "Do you want a delivery?"
+answers = [NodePath("yes"), NodePath("no")]
+metadata/_custom_type_script = "uid://pqehxrg4pn8g"
+
+[node name="yes" type="Node" parent="dialog_parts/do_u_want_quest" index="0" unique_id=2045497592 node_paths=PackedStringArray("dialogue_part")]
+script = ExtResource("3_qj8lf")
+answer = "Yes"
+dialogue_part = NodePath("../../u_got_quest")
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="no" type="Node" parent="dialog_parts/do_u_want_quest" index="1" unique_id=389264132]
+script = ExtResource("3_qj8lf")
+answer = "No"
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="u_got_quest" type="Node" parent="dialog_parts" parent_id_path=PackedInt32Array(212496064) index="1" unique_id=1955091612 node_paths=PackedStringArray("answers")]
+script = ExtResource("2_u3apl")
+text = "quest dialogue option"
+answers = [NodePath("DialogueOption")]
+metadata/_custom_type_script = "uid://pqehxrg4pn8g"
+
+[node name="DialogueOption" type="Node" parent="dialog_parts/u_got_quest" index="0" unique_id=651091425]
+script = ExtResource("3_qj8lf")
+answer = "Got it."
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="no_quest" type="Node" parent="dialog_parts" parent_id_path=PackedInt32Array(212496064) index="2" unique_id=1953753395 node_paths=PackedStringArray("answers")]
+script = ExtResource("2_u3apl")
+text = "You still have a Delivery unfulfilled"
+answers = [NodePath("DialogueOption")]
+metadata/_custom_type_script = "uid://pqehxrg4pn8g"
+
+[node name="DialogueOption" type="Node" parent="dialog_parts/no_quest" index="0" unique_id=727048864]
+script = ExtResource("3_qj8lf")
+answer = "Ok."
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"

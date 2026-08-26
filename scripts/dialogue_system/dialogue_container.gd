@@ -2,6 +2,7 @@ extends Control
 
 @export var initial_part: DialoguePart
 @export var current_dialogue_part: DialoguePart
+@export var data: Dictionary = {}
 
 signal dialogue_finished(_data)
 
@@ -30,10 +31,10 @@ func load_dialogue_part(part: DialoguePart):
 			%options.get_child(i).pressed.connect(func (): end(n.data))
 	$character_text/Label.text = part.text
 	current_dialogue_part = part
-func _ready() -> void:
-	await get_tree().process_frame
-	load_dialogue_part(initial_part)
 
 func end(_data):
 	dialogue_finished.emit(_data)
 	self.queue_free()
+
+func start():
+	load_dialogue_part(initial_part)

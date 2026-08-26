@@ -2,14 +2,18 @@
 
 [ext_resource type="Texture2D" uid="uid://btqojxwx7jqog" path="res://resources/assets/pizzaria.png" id="2_86abc"]
 [ext_resource type="Texture2D" uid="uid://ka6jwaxekf3q" path="res://resources/assets/pizzaria_button.png" id="3_1gbjn"]
+[ext_resource type="PackedScene" uid="uid://bl3y4t81phybr" path="res://scenes/cutscenes/pizzeria_dialogue.tscn" id="3_xdm26"]
 
 [sub_resource type="GDScript" id="GDScript_t7yah"]
 script/source = "extends cutscene
 
+var new_quest: quest
 var exit_button_has_mouse: bool = false
+var randomize_quest_level = false #for testing
+var has_quest_talked := false
 
 func _on_exit_button_pressed() -> void:
-	exit.emit()
+	exit.emit({\"quest\": new_quest} if has_quest_talked else {\"quest\": null})
 
 func _on_exit_button_mouse_entered() -> void:
 	exit_button_has_mouse = true
@@ -24,6 +28,27 @@ func _process(delta: float) -> void:
 		$bg_texture/exit_button/button_highlight.self_modulate.a = 0.1
 	else:
 		$bg_texture/exit_button/button_highlight.self_modulate.a = 0
+
+func _on_start(_data: Variant) -> void:
+	if player_stats_handler.current_quest != null: return
+	var level_normalized = clampi(int(player_stats_handler.sleep_level / 5),0, 4)
+	var quest_level = clamp(randi_range(level_normalized - 1, level_normalized + 1), 0, 4) if randomize_quest_level else level_normalized
+	var quest_folder = DirAccess.open(\"res://scenes/quests/individual_quests/level_%d/\" % quest_level)
+	var possible_quests = quest_folder.get_files()
+	for i in possible_quests:
+		if player_stats_handler.completed_quests.find(i) != -1:
+			possible_quests.erase(i)
+	new_quest = load(\"res://scenes/quests/individual_quests/level_%d/\" % quest_level + possible_quests[randi_range(0, len(possible_quests) - 1)]).instantiate()
+	print(new_quest)
+
+func _on_start_dialogue_button_pressed() -> void:
+	if has_quest_talked: return
+	var text = \"\"
+	if new_quest: text =  new_quest.dialogue_text
+	$dialogue_container.data = {\"quest_dialogue_text\": text, \"do_quest\": true if new_quest != null else false}
+	$dialogue_container.visible = true
+	$dialogue_container.start()
+	has_quest_talked = true
 "
 
 [node name="pizzeria" type="Control" unique_id=882671315]
@@ -63,6 +88,20 @@ offset_bottom = 35.2
 scale = Vector2(4, 4)
 texture = ExtResource("3_1gbjn")
 
+[node name="dialogue_container" parent="." unique_id=55732352 instance=ExtResource("3_xdm26")]
+visible = false
+layout_mode = 1
+
+[node name="start_dialogue_button" type="Button" parent="." unique_id=1887941501]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 640.0
+offset_top = 160.0
+offset_right = 960.0
+offset_bottom = 576.0
+
+[connection signal="start" from="." to="." method="_on_start"]
 [connection signal="mouse_entered" from="bg_texture/exit_button" to="." method="_on_exit_button_mouse_entered"]
 [connection signal="mouse_exited" from="bg_texture/exit_button" to="." method="_on_exit_button_mouse_exited"]
 [connection signal="pressed" from="bg_texture/exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="start_dialogue_button" to="." method="_on_start_dialogue_button_pressed"]

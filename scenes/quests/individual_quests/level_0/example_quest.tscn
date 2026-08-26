@@ -17,6 +17,8 @@ func start(_map, _player, _quest):
 
 [node name="quest" type="Node" unique_id=2109874893]
 script = ExtResource("1_l0au0")
+quest_name = "Example Quest"
+dialogue_text = "This is an example delivery, go on and complete it. The building is very close to the Pizzeria. It should pay 20$, atleast thats what my app says."
 metadata/_custom_type_script = "uid://do05hvlu6hyvh"
 
 [node name="quest_part" type="Node" parent="." unique_id=333577757]
