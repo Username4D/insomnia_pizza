@@ -35,6 +35,7 @@ func physics_process(_delta: float) -> void:
 				break
 			if i.is_in_group("interaction_area"):
 				i.interaction.emit()
+				print("i_area", i.name)
 			if grabbed_item != null:
 				print("ungrabbed")
 				grabbed_item.ungrabbed.emit(object)

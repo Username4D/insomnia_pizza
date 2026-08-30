@@ -19,11 +19,13 @@ player = NodePath("player_character")
 z_index = 3
 position = Vector2(1344, 832)
 script = ExtResource("4_thyw4")
+do_queue_free = false
 
 [node name="pizzeria_entry" parent="." unique_id=242591326 instance=ExtResource("3_w4hwi")]
 z_index = 3
 position = Vector2(-576, -192)
 script = ExtResource("4_thyw4")
+do_queue_free = false
 
 [node name="objects" type="Node2D" parent="." unique_id=2031243418]
 

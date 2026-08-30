@@ -2,7 +2,7 @@ extends Node2D
 
 @export var player: Node
 
-var interaction_area = preload("res://scenes/quest_interaction_area.tscn")
+var interaction_area = preload("res://scenes/quest_interaction_area_basic.tscn")
 
 func _process(delta: float) -> void:
 	if player:

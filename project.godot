@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="insomnia_pizza"
-run/main_scene="uid://xejjjomecqxf"
+run/main_scene="uid://db8g5ya72dh0r"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
 

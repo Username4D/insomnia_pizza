@@ -10,3 +10,4 @@ func _ready() -> void:
 	$map.player = $player_character
 	$shop_entry.interacted.connect(func(): shop_cutscene.emit())
 	$pizzeria_entry.interacted.connect(func(): pizzeria_cutscene.emit())
+	pizzeria_cutscene.connect(func(): print("s"),)

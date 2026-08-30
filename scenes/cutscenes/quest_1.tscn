@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://tcm53id3jwlj"]
+
+[ext_resource type="PackedScene" uid="uid://cbyxpre73dhlo" path="res://scenes/cutscene.tscn" id="1_p1gju"]
+[ext_resource type="Texture2D" uid="uid://r5qvgf831wo1" path="res://resources/assets/cutscene_door_normal_2.png" id="2_p1gju"]
+[ext_resource type="PackedScene" uid="uid://s8yk32q2b4cd" path="res://scenes/dialogue_container.tscn" id="3_u51ai"]
+[ext_resource type="PackedScene" uid="uid://lb4ll7ssfq85" path="res://scenes/dialog_part.tscn" id="4_8802m"]
+[ext_resource type="Script" uid="uid://2ar81ojxyvj1" path="res://scripts/dialogue_system/answer_pair.gd" id="5_x23ay"]
+
+[sub_resource type="GDScript" id="GDScript_voyk8"]
+script/source = "extends cutscene
+
+func _start(_data) -> void:
+	$dialogue_container.start()
+
+
+
+func _on_dialogue_container_dialogue_finished(_data: Variant) -> void:
+	exit.emit()
+"
+
+[node name="cutscene" unique_id=351215227 instance=ExtResource("1_p1gju")]
+script = SubResource("GDScript_voyk8")
+
+[node name="bg" type="Sprite2D" parent="." index="0" unique_id=852950455]
+position = Vector2(576, 576)
+scale = Vector2(4, 4)
+texture = ExtResource("2_p1gju")
+
+[node name="texture" type="Sprite2D" parent="." index="1" unique_id=1368277308]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("2_p1gju")
+
+[node name="dialogue_container" parent="." index="2" unique_id=55732352 node_paths=PackedStringArray("initial_part") instance=ExtResource("3_u51ai")]
+layout_mode = 1
+initial_part = NodePath("initial")
+
+[node name="initial" parent="dialogue_container" index="3" unique_id=109994784 node_paths=PackedStringArray("answers") instance=ExtResource("4_8802m")]
+text = "Ah. You must be the new pizza guy."
+answers = [NodePath("DialogueOption"), NodePath("DialogueOption2")]
+
+[node name="DialogueOption" type="Node" parent="dialogue_container/initial" index="0" unique_id=76466414 node_paths=PackedStringArray("dialogue_part")]
+script = ExtResource("5_x23ay")
+answer = "Word spreads fast, huh?"
+dialogue_part = NodePath("../../response")
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="DialogueOption2" type="Node" parent="dialogue_container/initial" index="1" unique_id=1393653118 node_paths=PackedStringArray("dialogue_part")]
+script = ExtResource("5_x23ay")
+answer = "Yes."
+dialogue_part = NodePath("../../response yes")
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="response" parent="dialogue_container" index="4" unique_id=476835826 node_paths=PackedStringArray("answers") instance=ExtResource("4_8802m")]
+text = "Yeah, but dont be scared, we just like our fair share of talking. Im sure your gonna do a great job."
+answers = [NodePath("DialogueOption")]
+
+[node name="DialogueOption" type="Node" parent="dialogue_container/response" index="0" unique_id=1749844382 node_paths=PackedStringArray("dialogue_part")]
+script = ExtResource("5_x23ay")
+answer = "..."
+dialogue_part = NodePath("../../response yes")
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[node name="response yes" parent="dialogue_container" index="5" unique_id=740282714 node_paths=PackedStringArray("answers") instance=ExtResource("4_8802m")]
+text = "Thanks for the quick delivery. Take that bit of extra money as a tip for the speed, you may need it at some point."
+answers = [NodePath("DialogueOption")]
+
+[node name="DialogueOption" type="Node" parent="dialogue_container/response yes" index="0" unique_id=1285439023 node_paths=PackedStringArray("dialogue_part")]
+script = ExtResource("5_x23ay")
+answer = "Thanks."
+dialogue_part = NodePath("")
+metadata/_custom_type_script = "uid://2ar81ojxyvj1"
+
+[connection signal="dialogue_finished" from="dialogue_container" to="." method="_on_dialogue_container_dialogue_finished"]

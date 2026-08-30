@@ -20,12 +20,14 @@ func load_quest(quest_node: quest):
 	self.add_child(quest_node)
 	player_stats_handler.current_quest = quest_node
 	await quest_node.completed
+	player_stats_handler.done_quests += 1
 	player_stats_handler.current_quest = null
 
 func _on_gameplay_world_shop_cutscene() -> void:
 	create_cutscene(load("res://scenes/cutscenes/shop.tscn").instantiate(), {})
 
 func _on_gameplay_world_pizzeria_cutscene() -> void:
+	print("wow")
 	var new_quest = await create_cutscene(load("res://scenes/cutscenes/pizzeria.tscn").instantiate(), {})
 	if new_quest["quest"] != null:
 		load_quest(new_quest["quest"])

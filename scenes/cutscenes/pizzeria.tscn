@@ -31,15 +31,9 @@ func _process(delta: float) -> void:
 
 func _on_start(_data: Variant) -> void:
 	if player_stats_handler.current_quest != null: return
-	var level_normalized = clampi(int(player_stats_handler.sleep_level / 5),0, 4)
-	var quest_level = clamp(randi_range(level_normalized - 1, level_normalized + 1), 0, 4) if randomize_quest_level else level_normalized
-	var quest_folder = DirAccess.open(\"res://scenes/quests/individual_quests/level_%d/\" % quest_level)
-	var possible_quests = quest_folder.get_files()
-	for i in possible_quests:
-		if player_stats_handler.completed_quests.find(i) != -1:
-			possible_quests.erase(i)
-	new_quest = load(\"res://scenes/quests/individual_quests/level_%d/\" % quest_level + possible_quests[randi_range(0, len(possible_quests) - 1)]).instantiate()
-	print(new_quest)
+	print(player_stats_handler.completed_quests)
+	new_quest = load(\"res://scenes/quests/individual_quests/\" + str(player_stats_handler.done_quests) + \".tscn\").instantiate()
+
 
 func _on_start_dialogue_button_pressed() -> void:
 	if has_quest_talked: return

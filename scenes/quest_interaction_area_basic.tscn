@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bt0iyr0ep4cwm"]
+
+[ext_resource type="PackedScene" uid="uid://cdxubrqj51m7e" path="res://scenes/quest_interaction_area.tscn" id="1_43x7e"]
+
+[node name="quest_interaction_area" unique_id=2019042317 instance=ExtResource("1_43x7e")]

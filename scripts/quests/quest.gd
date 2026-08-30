@@ -41,6 +41,7 @@ func next():
 		completed.emit()
 		self.queue_free()
 	else:
+		print(progress)
 		quests[progress].started.emit(map, player, self)
 		quests[progress].exit.connect(next)
 		part_text = quests[progress].part_text

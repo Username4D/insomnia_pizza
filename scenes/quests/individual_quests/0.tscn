@@ -6,19 +6,20 @@
 script/source = "extends quest_part
 
 func start(_map, _player, _quest):
-	var area = _map.create_interaction_area(Vector2(500,500))
-	var marker = _player.get_node(\"%minimap\").create_marker(Vector2(500, 500))
+	var area = _map.create_interaction_area(Vector2(2080,864))
+	var marker = _player.get_node(\"%minimap\").create_marker(Vector2(2080, 864))
 	await area.interacted
-	var new_cutscene: cutscene = load(\"res://scenes/demo_cutscene.tscn\").instantiate()
+	var new_cutscene: cutscene = load(\"res://scenes/cutscenes/quest_0.tscn\").instantiate()
 	_quest.get_parent().create_cutscene(new_cutscene, {})
 	marker.queue_free()
-	player_stats_handler.coins += 10
+	player_stats_handler.coins += 20
+	exit.emit()
 "
 
 [node name="quest" type="Node" unique_id=2109874893]
 script = ExtResource("1_l0au0")
 quest_name = "Example Quest"
-dialogue_text = "This is an example delivery, go on and complete it. The building is very close to the Pizzeria. It should pay 20$, atleast thats what my app says."
+dialogue_text = "So this is your first delivery. Just get it to the address on your map as fast as possible, and take your 20$."
 metadata/_custom_type_script = "uid://do05hvlu6hyvh"
 
 [node name="quest_part" type="Node" parent="." unique_id=333577757]
