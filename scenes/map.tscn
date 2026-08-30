@@ -14,6 +14,9 @@ region = Rect2(0, 48, 144, 64)
 atlas = ExtResource("4_2klcf")
 region = Rect2(0, 32, 112, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2klcf"]
+size = Vector2(64, 64)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gldc4"]
 shader = ExtResource("2_paxxb")
 shader_parameter/player_world_pos = Vector2(0, 0)
@@ -65,6 +68,12 @@ texture = SubResource("AtlasTexture_nakos")
 visible = false
 polygon = PackedVector2Array(-56, -32, -56, 32, 56, 32, 56, -24, 56, -32)
 
+[node name="StaticBody2D" type="StaticBody2D" parent="map_buildings" unique_id=62552282]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map_buildings/StaticBody2D" unique_id=1140507202]
+position = Vector2(208, 176)
+shape = SubResource("RectangleShape2D_2klcf")
+
 [node name="map_overhang" type="TileMapLayer" parent="." unique_id=847887997]
 z_index = 4
 material = SubResource("ShaderMaterial_gldc4")
@@ -85,4 +94,4 @@ texture = SubResource("AtlasTexture_jh32y")
 [node name="border" type="StaticBody2D" parent="." unique_id=1759565793]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="border" unique_id=1977554341]
-polygon = PackedVector2Array(-3840, -128, -4960, -672, -5024, -1504, -3808, -1952, -3744, -2688, -2816, -3392, -2304, -3104, -1696, -1888, -1824, -1472, 448, -2272, 1984, -2336, 3264, -1376, 3200, -576, 5760, 64, 7200, 160, 7488, 896, 6432, 1920, 4608, 1952, 3296, 2464, 1664, 2304, 3168, 2848, 3200, 4256, 1920, 4576, 64, 4224, -672, 2560, -2144, 2528, -2976, 3424, -4672, 3264, -5152, 1920, -4832, 256, -4128, -64, -4864, -384, -5888, 1568, -5120, 3968, -3008, 4192, -1632, 3232, -992, 3424, -224, 4608, 1440, 5216, 3264, 4672, 4064, 3680, 4096, 2784, 7072, 2400, 8032, 1280, 7328, -1088, 5888, -992, 3328, -2240, -544, -3296, -2816, -4128, -5600, -2432, -5920, -864, -4096, 64)
+polygon = PackedVector2Array(-3840, -128, -4960, -672, -5024, -1504, -3808, -1952, -3744, -2688, -2816, -3392, -2304, -3104, -1696, -1888, -1952, -1536, -2208, -1376, -1920, -1248, -1824, -1472, -352, -1440, -224, -1216, -64, -1216, -32, -1472, 96, -2048, 448, -2272, 1088, -2016, 1184, -1632, 1536, -1568, 1568, -2144, 1984, -2336, 2272, -2016, 2304, -1472, 2848, -1376, 2784, -384, 3968, -288, 4544, 192, 5760, 64, 7200, 160, 7488, 896, 6432, 1920, 4608, 1952, 3296, 2464, 1408, 2176, 1632, 2592, 2528, 2976, 3168, 2848, 3040, 3904, 1952, 4288, 64, 4224, -448, 2240, -2240, 2272, -2560, 2880, -3008, 3072, -4544, 2976, -4896, 1856, -4843.7446, 601.8728, -3680, 160, -3744, -160, -4960, -352, -5888, 1568, -5120, 3968, -3008, 4192, -1632, 3232, -992, 3424, -224, 4608, 1440, 5216, 3264, 4672, 4064, 3680, 4096, 2784, 7072, 2400, 8032, 1280, 7328, -1088, 5888, -992, 3328, -2240, -544, -3296, -2816, -4128, -5600, -2432, -5920, -864, -4096, 64)
