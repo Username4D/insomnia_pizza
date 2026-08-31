@@ -3,11 +3,69 @@
 [ext_resource type="Script" uid="uid://c65rmjvep017m" path="res://scripts/general/gameplay_view.gd" id="1_e77em"]
 [ext_resource type="PackedScene" uid="uid://xejjjomecqxf" path="res://scenes/gameplay_world.tscn" id="1_opx44"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_e77em"]
+font_size = 27
+
 [node name="gameplay_view" type="Node2D" unique_id=1780766587]
 script = ExtResource("1_e77em")
 
 [node name="gameplay_world" parent="." unique_id=1751764840 instance=ExtResource("1_opx44")]
 unique_name_in_owner = true
+
+[node name="timer" type="CanvasLayer" parent="." unique_id=759738801]
+
+[node name="minutes" type="Label" parent="timer" unique_id=1795892157]
+unique_name_in_owner = true
+offset_left = 960.0
+offset_top = 576.0
+offset_right = 1024.0
+offset_bottom = 640.0
+text = "30"
+label_settings = SubResource("LabelSettings_e77em")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spacer" type="Label" parent="timer" unique_id=1778132701]
+offset_left = 992.0
+offset_top = 576.0
+offset_right = 1056.0
+offset_bottom = 640.0
+text = ":"
+label_settings = SubResource("LabelSettings_e77em")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="seconds" type="Label" parent="timer" unique_id=882885494]
+unique_name_in_owner = true
+offset_left = 1024.0
+offset_top = 576.0
+offset_right = 1088.0
+offset_bottom = 640.0
+text = "30"
+label_settings = SubResource("LabelSettings_e77em")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spacer2" type="Label" parent="timer" unique_id=1435527223]
+offset_left = 1056.0
+offset_top = 576.0
+offset_right = 1120.0
+offset_bottom = 640.0
+text = ":"
+label_settings = SubResource("LabelSettings_e77em")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="milliseconds" type="Label" parent="timer" unique_id=1518885586]
+unique_name_in_owner = true
+offset_left = 1088.0
+offset_top = 576.0
+offset_right = 1152.0
+offset_bottom = 640.0
+text = "30"
+label_settings = SubResource("LabelSettings_e77em")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="cutscenes" type="CanvasLayer" parent="." unique_id=272857714]
 
