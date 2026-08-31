@@ -4,8 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://b03ccg2cfqtsk" path="res://resources/assets/shop.png" id="2_1qm6i"]
 [ext_resource type="PackedScene" uid="uid://bk011bunf7fl5" path="res://scenes/cutscenes/shop_item.tscn" id="3_625o3"]
 [ext_resource type="Texture2D" uid="uid://dgqu2vr8t5nl8" path="res://resources/assets/tilesets/items.png" id="4_rq75k"]
+[ext_resource type="Texture2D" uid="uid://cw4htp1q304vt" path="res://resources/assets/backt.png" id="5_egxnf"]
+[ext_resource type="Texture2D" uid="uid://ka6jwaxekf3q" path="res://resources/assets/pizzaria_button.png" id="6_l64v7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_625o3"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dkci"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tdanj"]
+bg_color = Color(1, 1, 1, 0.27450982)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22djl"]
+bg_color = Color(1, 1, 1, 0.09019608)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehnvt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdm6p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egxnf"]
 resource_local_to_scene = true
 atlas = ExtResource("4_rq75k")
 region = Rect2(0, 0, 16, 16)
@@ -14,7 +28,7 @@ filter_clip = true
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_625o3"]
 load_path = "res://.godot/imported/items.png-be610b5c875c3f65bd27027b18f5c9c3.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rq75k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l64v7"]
 resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_625o3")
 region = Rect2(16, 0, 16, 16)
@@ -22,9 +36,6 @@ filter_clip = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_625o3"]
 font_size = 37
-
-[sub_resource type="LabelSettings" id="LabelSettings_rq75k"]
-font_size = 27
 
 [node name="shop" type="Control" unique_id=1317937287]
 layout_mode = 3
@@ -39,6 +50,27 @@ position = Vector2(576, 324)
 scale = Vector2(4, 4)
 texture = ExtResource("2_1qm6i")
 
+[node name="button_highlight" type="TextureRect" parent="Shop" unique_id=1338525476]
+clip_children = 1
+offset_left = -31.0
+offset_top = -84.0
+offset_right = 24.0
+offset_bottom = -41.0
+texture = ExtResource("6_l64v7")
+
+[node name="exit_button" type="Button" parent="Shop/button_highlight" unique_id=491228010]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -2.25
+offset_top = -1.25
+offset_right = 63.0
+offset_bottom = 51.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4dkci")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tdanj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_22djl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ehnvt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rdm6p")
+
 [node name="items" type="Control" parent="." unique_id=379987121]
 anchors_preset = 0
 offset_right = 40.0
@@ -52,7 +84,7 @@ offset_right = 128.0
 offset_bottom = 366.785
 title = "Energy drinks"
 price = 30
-texture = SubResource("AtlasTexture_625o3")
+texture = SubResource("AtlasTexture_egxnf")
 description = "The developers favourite. Increases your movement speed by 15%."
 item_name = "energy_drink"
 
@@ -64,7 +96,7 @@ offset_right = 320.0
 offset_bottom = 384.0
 title = "Gas"
 price = 20
-texture = SubResource("AtlasTexture_rq75k")
+texture = SubResource("AtlasTexture_l64v7")
 description = "Somehow your car has to get fuel... Increases your cars speed by 15%."
 item_name = "gas"
 
@@ -78,20 +110,9 @@ text = "34$"
 label_settings = SubResource("LabelSettings_625o3")
 horizontal_alignment = 2
 
-[node name="exit_button" type="Button" parent="." unique_id=1572802296]
-layout_mode = 0
-offset_left = 96.0
-offset_top = 160.0
-offset_right = 288.0
-offset_bottom = 224.0
+[node name="Backt" type="Sprite2D" parent="." unique_id=1873999455]
+position = Vector2(128, 320)
+scale = Vector2(4, 4)
+texture = ExtResource("5_egxnf")
 
-[node name="Label" type="Label" parent="exit_button" unique_id=2116461772]
-layout_mode = 0
-offset_right = 192.0
-offset_bottom = 64.0
-text = "Back"
-label_settings = SubResource("LabelSettings_rq75k")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Shop/button_highlight/exit_button" to="." method="_on_exit_button_pressed"]

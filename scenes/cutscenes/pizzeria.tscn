@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://btqojxwx7jqog" path="res://resources/assets/pizzaria.png" id="2_86abc"]
 [ext_resource type="Texture2D" uid="uid://ka6jwaxekf3q" path="res://resources/assets/pizzaria_button.png" id="3_1gbjn"]
 [ext_resource type="PackedScene" uid="uid://bl3y4t81phybr" path="res://scenes/cutscenes/pizzeria_dialogue.tscn" id="3_xdm26"]
+[ext_resource type="Texture2D" uid="uid://gwme3icgm6rp" path="res://resources/assets/pizzaria-export.png" id="4_86abc"]
 
 [sub_resource type="GDScript" id="GDScript_t7yah"]
 script/source = "extends cutscene
@@ -45,6 +46,18 @@ func _on_start_dialogue_button_pressed() -> void:
 	has_quest_talked = true
 "
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1gbjn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sem16"]
+bg_color = Color(1, 1, 1, 0.19215687)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1lx5"]
+bg_color = Color(1, 1, 1, 0.078431375)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qyoyn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4x0qf"]
+
 [node name="pizzeria" type="Control" unique_id=882671315]
 layout_mode = 3
 anchors_preset = 15
@@ -86,16 +99,25 @@ texture = ExtResource("3_1gbjn")
 visible = false
 layout_mode = 1
 
-[node name="start_dialogue_button" type="Button" parent="." unique_id=1887941501]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 640.0
-offset_top = 160.0
-offset_right = 960.0
-offset_bottom = 576.0
+[node name="PizzariaExport" type="Sprite2D" parent="." unique_id=1135371807]
+clip_children = 1
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("4_86abc")
+
+[node name="start_dialogue_button" type="Button" parent="PizzariaExport" unique_id=1887941501]
+offset_left = 8.0
+offset_top = -49.0
+offset_right = 104.0
+offset_bottom = 79.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1gbjn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sem16")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k1lx5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qyoyn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4x0qf")
 
 [connection signal="start" from="." to="." method="_on_start"]
 [connection signal="mouse_entered" from="bg_texture/exit_button" to="." method="_on_exit_button_mouse_entered"]
 [connection signal="mouse_exited" from="bg_texture/exit_button" to="." method="_on_exit_button_mouse_exited"]
 [connection signal="pressed" from="bg_texture/exit_button" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="start_dialogue_button" to="." method="_on_start_dialogue_button_pressed"]
+[connection signal="pressed" from="PizzariaExport/start_dialogue_button" to="." method="_on_start_dialogue_button_pressed"]
