@@ -10,7 +10,7 @@ func physics_process(_delta: float) -> void:
 	object.get_node("%minimap").player_position = object.position
 	
 	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	object.move_and_collide(input.normalized() * speed * _delta)
+	object.move_and_collide(input.normalized() * speed * _delta * (1 + 0.15 * player_stats_handler.inventory["energy_drink"]))
 	object.get_node("hitbox").disabled = false
 	
 	var interactables = []

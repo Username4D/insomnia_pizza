@@ -13,12 +13,12 @@ var turning_radius = 1.2
 func _physics_process(delta: float) -> void:
 	if is_driven:
 		if Input.is_action_pressed("ui_up"):
-			speed = move_toward(speed, max_speed, acceleration * delta)
+			speed = move_toward(speed, max_speed * (1 + .15 * player_stats_handler.inventory["gas"]), acceleration * delta)
 		else:
 			speed = move_toward(speed, 0, acceleration * 1.5 * delta)
 		if Input.is_action_pressed("ui_down"):
 			turning_radius = 0.75
-			speed = move_toward(speed, -max_speed * 0.5, acceleration * 2 * delta)
+			speed = move_toward(speed, -max_speed * 0.5 * (1 + .15 * player_stats_handler.inventory["gas"]), acceleration * 2 * delta)
 	
 		else:
 			turning_radius = 1.2

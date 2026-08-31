@@ -36,3 +36,4 @@ position = Vector2(544, 384)
 position = Vector2(384, 352)
 
 [node name="player_character" parent="." unique_id=615522493 groups=["player"] instance=ExtResource("2_w4hwi")]
+z_index = 8

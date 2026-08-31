@@ -20,15 +20,6 @@ atlas = SubResource("CompressedTexture2D_625o3")
 region = Rect2(16, 0, 16, 16)
 filter_clip = true
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_egxnf"]
-load_path = "res://.godot/imported/items.png-be610b5c875c3f65bd27027b18f5c9c3.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_egxnf"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_egxnf")
-region = Rect2(31, 0, 16, 16)
-filter_clip = true
-
 [sub_resource type="LabelSettings" id="LabelSettings_625o3"]
 font_size = 37
 
@@ -62,7 +53,7 @@ offset_bottom = 366.785
 title = "Energy drinks"
 price = 30
 texture = SubResource("AtlasTexture_625o3")
-description = "The developers favourite. Helps you get through your work shift while staying awake"
+description = "The developers favourite. Increases your movement speed by 15%."
 item_name = "energy_drink"
 
 [node name="gas" parent="items" unique_id=142350194 instance=ExtResource("3_625o3")]
@@ -74,20 +65,8 @@ offset_bottom = 384.0
 title = "Gas"
 price = 20
 texture = SubResource("AtlasTexture_rq75k")
-description = "Somehow your car has to get fuel..."
+description = "Somehow your car has to get fuel... Increases your cars speed by 15%."
 item_name = "gas"
-
-[node name="flashlight" parent="items" unique_id=1727543736 instance=ExtResource("3_625o3")]
-layout_mode = 0
-offset_left = 224.0
-offset_top = 480.0
-offset_right = 224.0
-offset_bottom = 480.0
-title = "Flashlight"
-price = 50
-texture = SubResource("AtlasTexture_egxnf")
-description = "Let there be electronic light"
-item_name = "flashlight"
 
 [node name="cash_amount" type="Label" parent="." unique_id=732444072]
 layout_mode = 0

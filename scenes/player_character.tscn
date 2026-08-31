@@ -25,7 +25,7 @@ script = ExtResource("1_56udc")
 shape = SubResource("CircleShape2D_yqrqw")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=980198999]
-self_modulate = Color(0.09239707, 0.09239706, 0.09239706, 1)
+self_modulate = Color(0.80776817, 0.88031244, 0.90812325, 1)
 position = Vector2(1.9073486e-06, 5.722046e-06)
 scale = Vector2(32, 32)
 mesh = SubResource("SphereMesh_56udc")
