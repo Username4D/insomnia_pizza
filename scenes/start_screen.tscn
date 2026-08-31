@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cdaf43hh3kya2"]
+
+[ext_resource type="Script" uid="uid://dg7pxs3agqw8" path="res://scripts/start_screen.gd" id="1_tx5wa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cllq7"]
+font_size = 44
+
+[sub_resource type="LabelSettings" id="LabelSettings_tx5wa"]
+font_size = 17
+
+[sub_resource type="LabelSettings" id="LabelSettings_o7i0r"]
+font_size = 13
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7i0r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_he1sj"]
+bg_color = Color(1, 1, 1, 0.21960784)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2jwc"]
+bg_color = Color(1, 1, 1, 0.09019608)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hm208"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pab1"]
+
+[node name="start_screen" type="ColorRect" unique_id=49659983]
+offset_right = 1184.0
+offset_bottom = 672.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_tx5wa")
+
+[node name="Label" type="Label" parent="." unique_id=1143025590]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 1152.0
+offset_bottom = 224.0
+text = "Insomnia pizza:"
+label_settings = SubResource("LabelSettings_cllq7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1451119568]
+layout_mode = 0
+offset_top = 256.0
+offset_right = 1152.0
+offset_bottom = 352.0
+text = "Try to do all delivery missions as fast as possible. Get missions from the pizzeria, and upgrade your work in the shop."
+label_settings = SubResource("LabelSettings_tx5wa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=1463872468]
+layout_mode = 0
+offset_top = 544.0
+offset_right = 1152.0
+offset_bottom = 640.0
+text = "Made using the Godot engine (https://godotengine.org/license/)"
+label_settings = SubResource("LabelSettings_o7i0r")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1416936326]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 416.0
+offset_right = 768.0
+offset_bottom = 480.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o7i0r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_he1sj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r2jwc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hm208")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5pab1")
+text = "Play"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

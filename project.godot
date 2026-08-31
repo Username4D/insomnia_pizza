@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="insomnia_pizza"
-run/main_scene="uid://db8g5ya72dh0r"
+run/main_scene="uid://cdaf43hh3kya2"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
 
 [autoload]
 
 player_stats_handler="*uid://d1slkknp3y2pm"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
