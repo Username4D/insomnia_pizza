@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://b3rhyvixx437n"]
 
 [ext_resource type="Script" uid="uid://dtrxnxvge7ilm" path="res://scripts/objects/car.gd" id="1_c35m8"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_b0jew"]
-size = Vector2(64, 96)
+[ext_resource type="Texture2D" uid="uid://b7askp4q6u1bs" path="res://resources/assets/car.png" id="2_qt2eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c35m8"]
 size = Vector2(64, 96)
@@ -11,9 +9,9 @@ size = Vector2(64, 96)
 [node name="car" type="CharacterBody2D" unique_id=145654852 groups=["car", "interactable"]]
 script = ExtResource("1_c35m8")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1997968927]
-position = Vector2(-3.8146973e-06, 3.8146973e-06)
-mesh = SubResource("QuadMesh_b0jew")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=666501841]
 shape = SubResource("RectangleShape2D_c35m8")
+
+[node name="Car" type="Sprite2D" parent="." unique_id=1456280065]
+scale = Vector2(4, 4)
+texture = ExtResource("2_qt2eu")
