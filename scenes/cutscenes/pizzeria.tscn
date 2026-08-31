@@ -37,6 +37,7 @@ func _on_start(_data: Variant) -> void:
 
 
 func _on_start_dialogue_button_pressed() -> void:
+	$PizzariaExport/start_dialogue_button.disabled = true
 	if has_quest_talked: return
 	var text = \"\"
 	if new_quest: text =  new_quest.dialogue_text

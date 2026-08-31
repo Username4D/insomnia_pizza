@@ -9,6 +9,7 @@ func create_cutscene(scene: cutscene, _data):
 	%gameplay_world.process_mode = Node.PROCESS_MODE_DISABLED
 	%gameplay_world.visible = false
 	timer_active = false
+	player_stats_handler.time = current_time
 	scene.start.emit(_data)
 	var data = await scene.exit
 	%gameplay_world.process_mode = Node.PROCESS_MODE_INHERIT

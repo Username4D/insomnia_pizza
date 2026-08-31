@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://d1545jr6wcinm"]
+
+[ext_resource type="Script" uid="uid://do05hvlu6hyvh" path="res://scripts/quests/quest.gd" id="1_28xqf"]
+
+[sub_resource type="GDScript" id="GDScript_0ep2c"]
+script/source = "extends quest_part
+
+func start(_map, _player, _quest):
+	var area = _map.create_interaction_area(Vector2(2848,1440))
+	var marker = _player.get_node(\"%minimap\").create_marker(Vector2(2848,1440))
+	await area.interacted
+	var new_cutscene: cutscene = load(\"res://scenes/cutscenes/quest_2.tscn\").instantiate()
+	_quest.get_parent().create_cutscene(new_cutscene, {})
+	marker.queue_free()
+	player_stats_handler.coins += 25
+	exit.emit()
+"
+
+[sub_resource type="GDScript" id="GDScript_br1vi"]
+script/source = "extends quest_part
+
+func start(_map, _player, _quest):
+	var area = _map.create_interaction_area(Vector2(3232,2080))
+	var marker = _player.get_node(\"%minimap\").create_marker(Vector2(3232,2080))
+	await area.interacted
+	var new_cutscene: cutscene = load(\"res://scenes/cutscenes/quest_2_2.tscn\").instantiate()
+	_quest.get_parent().create_cutscene(new_cutscene, {})
+	marker.queue_free()
+	player_stats_handler.coins += 30
+	exit.emit()
+"
+
+[node name="quest" type="Node" unique_id=1934496516]
+script = ExtResource("1_28xqf")
+dialogue_text = "I actually have two pizzas ready, would be awesome if you could deliver both. You will get paid a bit extra tho."
+metadata/_custom_type_script = "uid://do05hvlu6hyvh"
+
+[node name="quest_part" type="Node" parent="." unique_id=276302255]
+script = SubResource("GDScript_0ep2c")
+metadata/_custom_type_script = "uid://bt34mwf21jqpr"
+
+[node name="quest_part2" type="Node" parent="." unique_id=702585052]
+script = SubResource("GDScript_br1vi")
+metadata/_custom_type_script = "uid://bt34mwf21jqpr"
