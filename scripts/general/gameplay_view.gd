@@ -5,6 +5,7 @@ var timer_active = true
 var current_time = 0
 
 func create_cutscene(scene: cutscene, _data):
+	print(cutscene)
 	$cutscenes.add_child(scene)
 	%gameplay_world.process_mode = Node.PROCESS_MODE_DISABLED
 	%gameplay_world.visible = false
