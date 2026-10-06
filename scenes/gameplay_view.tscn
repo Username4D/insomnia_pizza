@@ -2,9 +2,33 @@
 
 [ext_resource type="Script" uid="uid://c65rmjvep017m" path="res://scripts/general/gameplay_view.gd" id="1_e77em"]
 [ext_resource type="PackedScene" uid="uid://xejjjomecqxf" path="res://scenes/gameplay_world.tscn" id="1_opx44"]
+[ext_resource type="FontFile" uid="uid://clc5ydn35p5a5" path="res://resources/assets/HomeVideo-Regular.ttf" id="3_0qrwo"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_e77em"]
+[sub_resource type="LabelSettings" id="LabelSettings_a4xli"]
+font = ExtResource("3_0qrwo")
 font_size = 27
+shadow_size = 4
+shadow_offset = Vector2(-0.1, 0.095)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/color = Color(1, 1, 1, 0.06666667)
+stacked_shadow_0/outline_size = 19
+stacked_shadow_1/offset = Vector2(0, 0)
+stacked_shadow_1/color = Color(1, 1, 1, 0.011764706)
+stacked_shadow_1/outline_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_7nf73"]
+font = ExtResource("3_0qrwo")
+font_size = 27
+shadow_size = 4
+shadow_offset = Vector2(-0.1, 0.095)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/color = Color(1, 1, 1, 0.06666667)
+stacked_shadow_0/outline_size = 19
+stacked_shadow_1/offset = Vector2(0, 0)
+stacked_shadow_1/color = Color(1, 1, 1, 0.011764706)
+stacked_shadow_1/outline_size = 64
 
 [node name="gameplay_view" type="Node2D" unique_id=1780766587]
 script = ExtResource("1_e77em")
@@ -21,7 +45,7 @@ offset_top = 576.0
 offset_right = 1024.0
 offset_bottom = 640.0
 text = "30"
-label_settings = SubResource("LabelSettings_e77em")
+label_settings = SubResource("LabelSettings_a4xli")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -31,7 +55,7 @@ offset_top = 576.0
 offset_right = 1056.0
 offset_bottom = 640.0
 text = ":"
-label_settings = SubResource("LabelSettings_e77em")
+label_settings = SubResource("LabelSettings_7nf73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -42,7 +66,7 @@ offset_top = 576.0
 offset_right = 1088.0
 offset_bottom = 640.0
 text = "30"
-label_settings = SubResource("LabelSettings_e77em")
+label_settings = SubResource("LabelSettings_7nf73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -52,7 +76,7 @@ offset_top = 576.0
 offset_right = 1120.0
 offset_bottom = 640.0
 text = ":"
-label_settings = SubResource("LabelSettings_e77em")
+label_settings = SubResource("LabelSettings_7nf73")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -63,7 +87,7 @@ offset_top = 576.0
 offset_right = 1152.0
 offset_bottom = 640.0
 text = "30"
-label_settings = SubResource("LabelSettings_e77em")
+label_settings = SubResource("LabelSettings_7nf73")
 horizontal_alignment = 1
 vertical_alignment = 1
 

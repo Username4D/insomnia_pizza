@@ -1,23 +1,53 @@
 [gd_scene format=3 uid="uid://cdaf43hh3kya2"]
 
 [ext_resource type="Script" uid="uid://dg7pxs3agqw8" path="res://scripts/start_screen.gd" id="1_tx5wa"]
+[ext_resource type="FontFile" uid="uid://clc5ydn35p5a5" path="res://resources/assets/HomeVideo-Regular.ttf" id="2_he1sj"]
+[ext_resource type="PackedScene" uid="uid://b2kertkvqluld" path="res://scenes/map.tscn" id="3_r2jwc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cllq7"]
-font_size = 44
+font = ExtResource("2_he1sj")
+font_size = 58
+shadow_size = 4
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/color = Color(1, 1, 1, 0.06666667)
+stacked_shadow_0/outline_size = 19
+stacked_shadow_1/offset = Vector2(0, 0)
+stacked_shadow_1/color = Color(1, 1, 1, 0.011764706)
+stacked_shadow_1/outline_size = 64
 
-[sub_resource type="LabelSettings" id="LabelSettings_tx5wa"]
-font_size = 17
+[sub_resource type="LabelSettings" id="LabelSettings_hm208"]
+font = ExtResource("2_he1sj")
+font_size = 15
+shadow_size = 4
+shadow_offset = Vector2(-0.1, 0.095)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/color = Color(1, 1, 1, 0.06666667)
+stacked_shadow_0/outline_size = 19
+stacked_shadow_1/offset = Vector2(0, 0)
+stacked_shadow_1/color = Color(1, 1, 1, 0.011764706)
+stacked_shadow_1/outline_size = 64
 
-[sub_resource type="LabelSettings" id="LabelSettings_o7i0r"]
+[sub_resource type="LabelSettings" id="LabelSettings_5pab1"]
+font = ExtResource("2_he1sj")
 font_size = 13
+shadow_offset = Vector2(-0.1, 0.095)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/color = Color(1, 1, 1, 0.06666667)
+stacked_shadow_0/outline_size = 19
+stacked_shadow_1/offset = Vector2(0, 0)
+stacked_shadow_1/color = Color(1, 1, 1, 0.011764706)
+stacked_shadow_1/outline_size = 64
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7i0r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_he1sj"]
-bg_color = Color(1, 1, 1, 0.21960784)
+bg_color = Color(1, 1, 1, 0.1254902)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2jwc"]
-bg_color = Color(1, 1, 1, 0.09019608)
+bg_color = Color(1, 1, 1, 0.05490196)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hm208"]
 
@@ -26,12 +56,12 @@ bg_color = Color(1, 1, 1, 0.09019608)
 [node name="start_screen" type="ColorRect" unique_id=49659983]
 offset_right = 1184.0
 offset_bottom = 672.0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.6627451)
 script = ExtResource("1_tx5wa")
 
 [node name="Label" type="Label" parent="." unique_id=1143025590]
 layout_mode = 0
-offset_top = 128.0
+offset_top = 32.0
 offset_right = 1152.0
 offset_bottom = 224.0
 text = "Insomnia pizza:"
@@ -41,21 +71,71 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="." unique_id=1451119568]
 layout_mode = 0
-offset_top = 256.0
-offset_right = 1152.0
-offset_bottom = 352.0
+offset_left = 32.0
+offset_top = 288.0
+offset_right = 544.0
+offset_bottom = 384.0
 text = "Try to do all delivery missions as fast as possible. Get missions from the pizzeria, and upgrade your work in the shop."
-label_settings = SubResource("LabelSettings_tx5wa")
+label_settings = SubResource("LabelSettings_hm208")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="." unique_id=631353920]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 288.0
+offset_right = 1120.0
+offset_bottom = 384.0
+text = "WASD - Move
+E - Interact
+M - Map"
+label_settings = SubResource("LabelSettings_hm208")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="." unique_id=1841693260]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 224.0
+offset_right = 544.0
+offset_bottom = 288.0
+text = "Objective:"
+label_settings = SubResource("LabelSettings_hm208")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="." unique_id=1318220732]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 224.0
+offset_right = 1120.0
+offset_bottom = 288.0
+text = "Controls:"
+label_settings = SubResource("LabelSettings_hm208")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="." unique_id=1463872468]
 layout_mode = 0
-offset_top = 544.0
+offset_top = 480.0
 offset_right = 1152.0
 offset_bottom = 640.0
 text = "Made using the Godot engine (https://godotengine.org/license/)"
-label_settings = SubResource("LabelSettings_o7i0r")
+label_settings = SubResource("LabelSettings_5pab1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="." unique_id=1137549435]
+layout_mode = 0
+offset_top = 416.0
+offset_right = 1152.0
+offset_bottom = 512.0
+text = "Play"
+label_settings = SubResource("LabelSettings_5pab1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -64,12 +144,34 @@ layout_mode = 0
 offset_left = 384.0
 offset_top = 416.0
 offset_right = 768.0
-offset_bottom = 480.0
+offset_bottom = 512.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_o7i0r")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_he1sj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_r2jwc")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_hm208")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5pab1")
-text = "Play"
+
+[node name="map" parent="." unique_id=345281684 instance=ExtResource("3_r2jwc")]
+show_behind_parent = true
+z_index = -13
+position = Vector2(32, 0)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=824675211]
+points = PackedVector2Array(576, 224, 576, 384)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=431964641]
+points = PackedVector2Array(576, 224, 576, 384)
+width = 4.305
+default_color = Color(1, 1, 1, 0.05490196)
+begin_cap_mode = 1
+end_cap_mode = 1
+
+[node name="Line2D3" type="Line2D" parent="." unique_id=1413878031]
+points = PackedVector2Array(576, 224, 576, 384)
+width = 7.585
+default_color = Color(1, 1, 1, 0.05490196)
+begin_cap_mode = 1
+end_cap_mode = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

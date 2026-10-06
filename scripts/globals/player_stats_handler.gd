@@ -6,4 +6,5 @@ var done_quests: int = 0
 var completed_quests = []
 var current_quest: quest
 var time = 0
+var car_pos = Vector2(0,0)
 signal load_quest(quest)

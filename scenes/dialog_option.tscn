@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://xbvecomws1b6"]
 
+[ext_resource type="FontFile" uid="uid://clc5ydn35p5a5" path="res://resources/assets/HomeVideo-Regular.ttf" id="1_0xgwi"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nabb3"]
 bg_color = Color(0.015686275, 0.015686275, 0.023529412, 1)
 border_width_left = 4
@@ -48,8 +50,18 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.14509805, 0.14509805, 0.19607843, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_nabb3"]
-font_size = 14
+[sub_resource type="LabelSettings" id="LabelSettings_u46lk"]
+font = ExtResource("1_0xgwi")
+font_size = 15
+shadow_size = 4
+shadow_offset = Vector2(-0.1, 0.095)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/color = Color(1, 1, 1, 0.06666667)
+stacked_shadow_0/outline_size = 19
+stacked_shadow_1/offset = Vector2(0, 0)
+stacked_shadow_1/color = Color(1, 1, 1, 0.011764706)
+stacked_shadow_1/outline_size = 64
 
 [node name="dialog_option" type="Button" unique_id=58874116]
 anchors_preset = 15
@@ -74,6 +86,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "DIALOGUE_OPTION"
-label_settings = SubResource("LabelSettings_nabb3")
+label_settings = SubResource("LabelSettings_u46lk")
 horizontal_alignment = 1
 vertical_alignment = 1

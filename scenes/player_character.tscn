@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b72x7rsbrl5nb" path="res://scripts/player/state_driving.gd" id="4_6unfe"]
 [ext_resource type="Script" uid="uid://b16oled5aninw" path="res://scripts/player/state_dialog.gd" id="5_pxja8"]
 [ext_resource type="PackedScene" uid="uid://cyj0wxkc1e402" path="res://scenes/minimap.tscn" id="6_2vmgx"]
+[ext_resource type="FontFile" uid="uid://clc5ydn35p5a5" path="res://resources/assets/HomeVideo-Regular.ttf" id="6_pxja8"]
 [ext_resource type="Texture2D" uid="uid://0dsep1fbuww4" path="res://resources/assets/player.png" id="7_6unfe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqrqw"]
@@ -16,8 +17,31 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_56udc"]
 radius = 64.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_2vmgx"]
+[sub_resource type="LabelSettings" id="LabelSettings_iadup"]
+font = ExtResource("6_pxja8")
+font_size = 15
+shadow_size = 4
+shadow_offset = Vector2(-0.1, 0.095)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/color = Color(1, 1, 1, 0.06666667)
+stacked_shadow_0/outline_size = 19
+stacked_shadow_1/offset = Vector2(0, 0)
+stacked_shadow_1/color = Color(1, 1, 1, 0.011764706)
+stacked_shadow_1/outline_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_herhr"]
+font = ExtResource("6_pxja8")
 font_size = 42
+shadow_size = 4
+shadow_offset = Vector2(-0.1, 0.095)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/color = Color(1, 1, 1, 0.06666667)
+stacked_shadow_0/outline_size = 19
+stacked_shadow_1/offset = Vector2(0, 0)
+stacked_shadow_1/color = Color(1, 1, 1, 0.011764706)
+stacked_shadow_1/outline_size = 64
 
 [node name="player_character" type="CharacterBody2D" unique_id=615522493]
 script = ExtResource("1_56udc")
@@ -72,6 +96,7 @@ offset_top = -96.0
 offset_right = 96.0
 offset_bottom = -64.0
 text = "Press E to interact"
+label_settings = SubResource("LabelSettings_iadup")
 horizontal_alignment = 1
 
 [node name="minimap_container" type="Control" parent="ui" unique_id=967331823]
@@ -116,7 +141,7 @@ offset_top = -304.0
 offset_right = -352.0
 offset_bottom = -246.0
 text = "32$"
-label_settings = SubResource("LabelSettings_2vmgx")
+label_settings = SubResource("LabelSettings_herhr")
 
 [node name="Player" type="Sprite2D" parent="." unique_id=1923007918]
 scale = Vector2(4, 4)

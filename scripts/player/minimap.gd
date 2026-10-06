@@ -13,3 +13,4 @@ func create_marker(marker_position: Vector2) -> Node:
 
 func _process(delta: float) -> void:
 	$Camera2D.position = player_position
+	$car.position = player_stats_handler.car_pos

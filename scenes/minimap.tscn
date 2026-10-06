@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://br12lhyjmwa4n" path="res://resources/assets/tile_pure_white.png" id="1_lj7mc"]
 [ext_resource type="Script" uid="uid://drtu6vb01cgv7" path="res://scripts/player/minimap.gd" id="1_o13pn"]
+[ext_resource type="FontFile" uid="uid://clc5ydn35p5a5" path="res://resources/assets/HomeVideo-Regular.ttf" id="3_4v8nv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o13pn"]
 texture = ExtResource("1_lj7mc")
@@ -9,6 +10,19 @@ texture = ExtResource("1_lj7mc")
 
 [sub_resource type="TileSet" id="TileSet_4v8nv"]
 sources/0 = SubResource("TileSetAtlasSource_o13pn")
+
+[sub_resource type="LabelSettings" id="LabelSettings_dsx0k"]
+font = ExtResource("3_4v8nv")
+font_size = 112
+shadow_size = 4
+shadow_offset = Vector2(-0.1, 0.095)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/color = Color(1, 1, 1, 0.06666667)
+stacked_shadow_0/outline_size = 19
+stacked_shadow_1/offset = Vector2(0, 0)
+stacked_shadow_1/color = Color(1, 1, 1, 0.011764706)
+stacked_shadow_1/outline_size = 64
 
 [node name="minimap" type="SubViewport" unique_id=1056621904]
 transparent_bg = true
@@ -29,3 +43,27 @@ offset_right = 40.0
 offset_bottom = 40.0
 rotation = 0.7853982
 color = Color(0.68396026, 0.7890422, 1, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1721371649]
+offset_left = 1344.8527
+offset_top = 849.58966
+offset_right = 1388.8527
+offset_bottom = 872.58966
+text = "SHOP"
+label_settings = SubResource("LabelSettings_dsx0k")
+
+[node name="Label2" type="Label" parent="." unique_id=1088256777]
+offset_left = -577.36426
+offset_top = -175.9379
+offset_right = -39.364258
+offset_bottom = -73.9379
+text = "PIZZERIA"
+label_settings = SubResource("LabelSettings_dsx0k")
+
+[node name="car" type="Label" parent="." unique_id=379050191]
+offset_left = -577.36426
+offset_top = -175.9379
+offset_right = -39.364258
+offset_bottom = -73.9379
+text = "CAR"
+label_settings = SubResource("LabelSettings_dsx0k")

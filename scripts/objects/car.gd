@@ -10,6 +10,9 @@ const acceleration = 200
 var turning_radius = 1.2
 @export var turn = 0
 
+func _process(delta: float) -> void:
+	player_stats_handler.car_pos = self.position
+
 func _physics_process(delta: float) -> void:
 	if is_driven:
 		if Input.is_action_pressed("ui_up"):
