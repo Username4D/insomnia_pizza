@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bk011bunf7fl5" path="res://scenes/cutscenes/shop_item.tscn" id="3_625o3"]
 [ext_resource type="Texture2D" uid="uid://dgqu2vr8t5nl8" path="res://resources/assets/tilesets/items.png" id="4_rq75k"]
 [ext_resource type="Texture2D" uid="uid://cw4htp1q304vt" path="res://resources/assets/backt.png" id="5_egxnf"]
+[ext_resource type="FontFile" uid="uid://clc5ydn35p5a5" path="res://resources/assets/HomeVideo-Regular.ttf" id="6_4dkci"]
 [ext_resource type="Texture2D" uid="uid://ka6jwaxekf3q" path="res://resources/assets/pizzaria_button.png" id="6_l64v7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dkci"]
@@ -19,7 +20,7 @@ bg_color = Color(1, 1, 1, 0.09019608)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdm6p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_egxnf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdanj"]
 resource_local_to_scene = true
 atlas = ExtResource("4_rq75k")
 region = Rect2(0, 0, 16, 16)
@@ -28,14 +29,24 @@ filter_clip = true
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_625o3"]
 load_path = "res://.godot/imported/items.png-be610b5c875c3f65bd27027b18f5c9c3.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l64v7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_22djl"]
 resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_625o3")
 region = Rect2(16, 0, 16, 16)
 filter_clip = true
 
-[sub_resource type="LabelSettings" id="LabelSettings_625o3"]
-font_size = 37
+[sub_resource type="LabelSettings" id="LabelSettings_ehnvt"]
+font = ExtResource("6_4dkci")
+font_size = 36
+shadow_size = 4
+shadow_offset = Vector2(-0.1, 0.095)
+stacked_shadow_count = 2
+stacked_shadow_0/offset = Vector2(0, 0)
+stacked_shadow_0/color = Color(1, 1, 1, 0.06666667)
+stacked_shadow_0/outline_size = 19
+stacked_shadow_1/offset = Vector2(0, 0)
+stacked_shadow_1/color = Color(1, 1, 1, 0.011764706)
+stacked_shadow_1/outline_size = 64
 
 [node name="shop" type="Control" unique_id=1317937287]
 layout_mode = 3
@@ -84,7 +95,7 @@ offset_right = 128.0
 offset_bottom = 366.785
 title = "Energy drinks"
 price = 30
-texture = SubResource("AtlasTexture_egxnf")
+texture = SubResource("AtlasTexture_tdanj")
 description = "The developers favourite. Increases your movement speed by 15%."
 item_name = "energy_drink"
 
@@ -96,7 +107,7 @@ offset_right = 320.0
 offset_bottom = 384.0
 title = "Gas"
 price = 20
-texture = SubResource("AtlasTexture_l64v7")
+texture = SubResource("AtlasTexture_22djl")
 description = "Somehow your car has to get fuel... Increases your cars speed by 15%."
 item_name = "gas"
 
@@ -107,7 +118,7 @@ offset_top = 32.0
 offset_right = 1120.0
 offset_bottom = 96.0
 text = "34$"
-label_settings = SubResource("LabelSettings_625o3")
+label_settings = SubResource("LabelSettings_ehnvt")
 horizontal_alignment = 2
 
 [node name="Backt" type="Sprite2D" parent="." unique_id=1873999455]
