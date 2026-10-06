@@ -8,6 +8,7 @@ The project was made using godot 4.6.3.stable and should be edited using that ve
 
 ## Playing:
 Binaries of the game can be found in the releases tab.
+It can also be played on [Itch.io](https://username4ddev.itch.io/insomnia-pizza)
 
 ## Modding:
 Modding, mainly adding new quests can be done via the quest and the quest_part class. These contain signals and functions for starting and ending the quest. Quests have quest_parts as children, which are supposed to be used like sections of the quest. If a quest needs a cutscene, you should use the cutscene class. For more examples on how to use the quest, quest_part and cutscene class check out the other quests which are already in the game.
